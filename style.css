@@ -6,38 +6,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
 
 :root {
-    /* Premium Luxury Color Palette */
-    /* Primary Jewel Tones */
-    --emerald-green: #0d4a3d;
-    --deep-maroon: #5a1628;
-    --sapphire-blue: #001f3f;
-    --royal-blue: #003d5c;
-    --plum-royal: #4a1a4a;
+    /* ========================================
+       VELORA BY MEGHA - CONSISTENT LUXURY THEME
+       Beige + Burgundy + Gold Color Palette
+       ======================================== */
     
-    /* Premium Gold & Metallic */
-    --accent-gold: #e8c547;
-    --champagne-gold: #f4e4c1;
-    --rose-gold: #e8a87c;
-    --antique-gold: #d4af37;
-    --platinum: #e5e5ea;
-    --pearl-white: #f8f6f0;
+    /* Core Brand Colors */
+    --primary-burgundy: #6D213C;           /* Primary Burgundy - Buttons, Headers, Highlights */
+    --secondary-burgundy: #4A162A;         /* Deep Burgundy - Secondary elements */
+    --accent-gold: #C8A96A;                /* Gold - Premium accents, hover effects */
     
-    /* Luxe Accent Colors */
-    --burgundy: #8b3a3a;
-    --teal-luxury: #1a5f5a;
-    --wine-red: #722f37;
-    --lavender-gray: #b8a8c8;
+    /* Background Colors */
+    --bg-primary: #F8F2EC;                 /* Warm Beige - Main background */
+    --bg-secondary: #FFF8F3;               /* Light Beige - Section backgrounds */
+    --bg-card: #FFFFFF;                    /* White - Card backgrounds */
     
-    /* Neutral Luxury */
-    --ivory-cream: #faf8f4;
-    --light-cream: #fdf9f3;
-    --marble-light: #f0ebe3;
-    --gold-light: #f5efdb;
-    --off-white: #fefdfb;
-    --dark-accent: #0a0e14;
-    --text-dark: #1a1a1a;
-    --text-light: #5a5a5a;
-    --white: #ffffff;
+    /* Text Colors */
+    --text-dark: #2F2A2A;                  /* Dark text - Primary */
+    --text-muted: #6B5E5E;                 /* Muted text - Secondary */
+    --text-light: #FFFFFF;                 /* Light text - On dark backgrounds */
+    
+    /* UI Elements */
+    --border-color: #E8DDD4;               /* Borders */
+    --hover-bg: #F4E8DE;                   /* Hover background */
+    
+    /* Status Colors */
+    --success-color: #4CAF50;              /* Success */
+    --error-color: #C62828;                /* Error */
+    
+    /* Legacy aliases for compatibility */
+    --emerald-green: #6D213C;
+    --deep-maroon: #4A162A;
+    --sapphire-blue: #6D213C;
+    --royal-blue: #4A162A;
+    --plum-royal: #6D213C;
+    --accent-gold-legacy: #C8A96A;
+    --champagne-gold: #F8F2EC;
+    --rose-gold: #C8A96A;
+    --antique-gold: #C8A96A;
+    --platinum: #FFF8F3;
+    --pearl-white: #FFFFFF;
+    --burgundy: #6D213C;
+    --teal-luxury: #6D213C;
+    --wine-red: #4A162A;
+    --lavender-gray: #E8DDD4;
+    --ivory-cream: #F8F2EC;
+    --light-cream: #FFF8F3;
+    --marble-light: #F4E8DE;
+    --gold-light: #FFF8F3;
+    --off-white: #FFFFFF;
+    --dark-accent: #2F2A2A;
+    --white: #FFFFFF;
 
     --font-primary: 'Poppins', sans-serif;
     --font-secondary: 'Cormorant Garamond', serif;
@@ -52,10 +71,10 @@
     --spacing-xl: 3rem;
     --spacing-2xl: 4rem;
 
-    --shadow-sm: 0 3px 12px rgba(15, 15, 15, 0.08);
-    --shadow-md: 0 8px 24px rgba(15, 15, 15, 0.12);
-    --shadow-lg: 0 15px 40px rgba(15, 15, 15, 0.15);
-    --shadow-xl: 0 20px 50px rgba(15, 15, 15, 0.2);
+    --shadow-sm: 0 3px 12px rgba(109, 33, 60, 0.08);
+    --shadow-md: 0 8px 24px rgba(109, 33, 60, 0.12);
+    --shadow-lg: 0 15px 40px rgba(109, 33, 60, 0.15);
+    --shadow-xl: 0 20px 50px rgba(109, 33, 60, 0.2);
 
     --transition: all 0.4s cubic-bezier(0.35, 0.46, 0.4, 0.94);
     --transition-fast: all 0.25s ease;
@@ -80,7 +99,7 @@ body {
     font-size: var(--font-size-base);
     line-height: var(--line-height);
     color: var(--text-dark);
-    background: linear-gradient(135deg, var(--ivory-cream) 0%, var(--light-cream) 100%);
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -99,11 +118,11 @@ body {
 .navbar {
     position: sticky;
     top: 0;
-    background: linear-gradient(135deg, var(--sapphire-blue) 0%, var(--plum-royal) 50%, var(--deep-maroon) 100%);
+    background: var(--primary-burgundy);
     backdrop-filter: blur(15px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 12px 40px rgba(109, 33, 60, 0.25);
     z-index: 1000;
-    border-bottom: 3px solid var(--champagne-gold);
+    border-bottom: 3px solid var(--accent-gold);
 }
 
 .nav-container {
@@ -628,40 +647,41 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--plum-royal), var(--deep-maroon));
-    color: var(--white);
-    border: 2px solid var(--champagne-gold);
+    background: linear-gradient(135deg, var(--primary-burgundy), var(--secondary-burgundy));
+    color: var(--text-light);
+    border: 2px solid var(--accent-gold);
 }
 
 .btn-primary:hover {
     transform: translateY(-4px);
-    box-shadow: 0 15px 40px rgba(74, 26, 74, 0.35);
-    background: linear-gradient(135deg, var(--sapphire-blue), var(--plum-royal));
+    box-shadow: 0 15px 40px rgba(200, 169, 106, 0.35);
+    background: linear-gradient(135deg, var(--secondary-burgundy), var(--primary-burgundy));
 }
 
 .btn-outline {
     background: transparent;
-    color: var(--sapphire-blue);
-    border: 2px solid var(--rose-gold);
+    color: var(--primary-burgundy);
+    border: 2px solid var(--accent-gold);
     font-weight: 600;
 }
 
 .btn-outline:hover {
-    background: var(--rose-gold);
-    color: var(--white);
+    background: var(--accent-gold);
+    color: var(--text-dark);
     transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(200, 169, 106, 0.3);
 }
 
 .btn-danger {
-    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
-    color: var(--white);
-    border: 2px solid #e67e22;
+    background: linear-gradient(135deg, var(--error-color) 0%, rgba(198, 40, 40, 0.8) 100%);
+    color: var(--text-light);
+    border: 2px solid var(--error-color);
 }
 
 .btn-danger:hover {
     transform: translateY(-4px);
-    box-shadow: 0 15px 40px rgba(231, 76, 60, 0.35);
-    background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+    box-shadow: 0 15px 40px rgba(198, 40, 40, 0.35);
+    background: linear-gradient(135deg, rgba(198, 40, 40, 0.8) 0%, var(--error-color) 100%);
 }
 
 /* ========================================

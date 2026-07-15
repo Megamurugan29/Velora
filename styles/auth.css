@@ -2,12 +2,69 @@
    AUTHENTICATION STYLES
    ======================================== */
 
+:root {
+    /* ========================================
+       VELORA BY MEGHA - CONSISTENT LUXURY THEME
+       Beige + Burgundy + Gold Color Palette
+       ======================================== */
+    
+    /* Core Brand Colors */
+    --primary: #6D213C;                    /* Primary Burgundy - Buttons, Headers, Highlights */
+    --primary-burgundy: #6D213C;           /* Primary Burgundy */
+    --secondary-burgundy: #4A162A;         /* Secondary Burgundy - Darker shade */
+    --secondary: #C8A96A;                  /* Gold - Premium accents, hover effects */
+    --accent: #C8A96A;                     /* Gold - Accents */
+    --accent-gold: #C8A96A;                /* Gold - Accent color */
+    
+    /* Background Colors */
+    --bg-primary: #F8F2EC;                 /* Warm Beige - Main background */
+    --bg-secondary: #FFFFFF;               /* White - Card backgrounds */
+    --bg-hover: #FFF8F3;                   /* Light Beige - Hover backgrounds */
+    
+    /* Text Colors */
+    --text-primary: #2F2A2A;               /* Dark text - Primary */
+    --text-secondary: #6B5E5E;             /* Muted text - Secondary */
+    --text-light: #FFFFFF;                 /* Light text - On dark backgrounds */
+    --text-dark: #2F2A2A;                  /* Dark text color */
+    --text-muted: #6B5E5E;                 /* Muted text color */
+    
+    /* UI Elements */
+    --border-light: #E8DDD4;               /* Borders */
+    --border-hover: #C8A96A;               /* Gold borders on hover */
+    --shadow-light: rgba(109, 33, 60, 0.08);
+    
+    /* Status Colors */
+    --success-color: #4CAF50;              /* Success */
+    --error-color: #C62828;                /* Error */
+    
+    /* Legacy aliases for compatibility */
+    --pearl-white: #FFFFFF;
+    --ivory-cream: #F8F2EC;
+    --marble-light: #F4E8DE;
+    --sapphire-blue: #6D213C;
+    --plum-royal: #4A162A;
+    --deep-maroon: #4A162A;
+    --rose-gold: #C8A96A;
+    --champagne-gold: #C8A96A;
+    --white: #FFFFFF;
+    --font-display: 'Playfair Display', serif;
+    --font-primary: 'Poppins', sans-serif;
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-2xl: 4rem;
+    --shadow-md: 0 4px 12px rgba(109, 33, 60, 0.1);
+    --transition: all 0.3s ease;
+}
+
 .auth-container {
     min-height: calc(100vh - 70px);
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--pearl-white) 0%, var(--ivory-cream) 50%, var(--marble-light) 100%);
+    background: linear-gradient(135deg, #FFFFFF 0%, var(--bg-primary) 50%, #F4E8DE 100%);
     padding: var(--spacing-xl);
 }
 
@@ -30,7 +87,7 @@
 .auth-card h1 {
     font-family: var(--font-display);
     font-size: 2.5rem;
-    color: var(--sapphire-blue);
+    color: var(--primary);
     margin-bottom: var(--spacing-md);
 }
 
@@ -54,26 +111,28 @@
 
 .form-group label {
     font-weight: 600;
-    color: var(--sapphire-blue);
+    color: var(--primary-burgundy);
 }
 
 .form-group input,
 .form-group textarea,
 .form-group select {
     padding: 12px 16px;
-    border: 2px solid rgba(232, 197, 71, 0.2);
+    border: 2px solid var(--border-light);
     border-radius: 6px;
     font-family: inherit;
     font-size: 1rem;
     transition: var(--transition);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
 }
 
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
     outline: none;
-    border-color: var(--rose-gold);
-    box-shadow: 0 0 0 3px rgba(232, 164, 124, 0.1);
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 0 3px rgba(200, 169, 106, 0.2);
 }
 
 .form-group small {
@@ -134,31 +193,33 @@
 }
 
 .forgot-password-link:hover {
-    color: var(--deep-maroon);
+    color: var(--accent-gold);
 }
 
 .admin-login-section {
     margin-top: var(--spacing-xl);
     padding-top: var(--spacing-lg);
-    border-top: 2px solid rgba(232, 197, 71, 0.2);
+    border-top: 2px solid var(--border-light);
 }
 
 .admin-login-title {
     text-align: center;
     font-weight: 600;
-    color: var(--sapphire-blue);
+    color: var(--primary-burgundy);
     margin-bottom: var(--spacing-md);
 }
 
 .admin-login-btn {
     width: 100%;
     background: transparent;
-    border: 2px solid var(--rose-gold);
-    color: var(--sapphire-blue);
+    border: 2px solid var(--accent-gold);
+    color: var(--primary-burgundy);
 }
 
 .admin-login-btn:hover {
-    background: rgba(232, 164, 124, 0.1);
+    background: rgba(200, 169, 106, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(200, 169, 106, 0.2);
 }
 
 .auth-footer {
@@ -169,7 +230,7 @@
 }
 
 .auth-image {
-    background: linear-gradient(135deg, var(--sapphire-blue) 0%, var(--plum-royal) 50%, var(--deep-maroon) 100%);
+    background: linear-gradient(135deg, var(--primary-burgundy) 0%, var(--secondary-burgundy) 100%);
     border-radius: 8px;
     padding: var(--spacing-2xl);
     color: var(--white);
@@ -246,14 +307,14 @@
     text-align: center;
     margin-bottom: var(--spacing-xl);
     padding-bottom: var(--spacing-xl);
-    border-bottom: 2px solid rgba(232, 197, 71, 0.2);
+    border-bottom: 2px solid var(--border-light);
 }
 
 .profile-avatar {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--rose-gold), var(--champagne-gold));
+    background: linear-gradient(135deg, var(--primary-burgundy), var(--accent-gold));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -265,7 +326,7 @@
 
 .profile-sidebar h2 {
     font-size: 1.3rem;
-    color: var(--sapphire-blue);
+    color: var(--primary-burgundy);
     margin-bottom: var(--spacing-sm);
 }
 
@@ -294,15 +355,15 @@
 
 .profile-menu-item:hover,
 .profile-menu-item.active {
-    background: rgba(232, 197, 71, 0.15);
-    color: var(--sapphire-blue);
+    background: rgba(200, 169, 106, 0.15);
+    color: var(--primary-burgundy);
 }
 
 .profile-menu-item.logout {
     margin-top: var(--spacing-lg);
     padding-top: var(--spacing-lg);
-    border-top: 2px solid rgba(232, 197, 71, 0.2);
-    color: #e74c3c;
+    border-top: 2px solid var(--border-light);
+    color: var(--error-color);
 }
 
 .menu-icon {
@@ -328,13 +389,13 @@
 .profile-tab h3 {
     font-family: var(--font-display);
     font-size: 1.8rem;
-    color: var(--sapphire-blue);
+    color: var(--primary-burgundy);
     margin-bottom: var(--spacing-lg);
 }
 
 .profile-tab h4 {
     font-size: 1.2rem;
-    color: var(--deep-maroon);
+    color: var(--secondary-burgundy);
     margin-bottom: var(--spacing-md);
     margin-top: var(--spacing-lg);
 }

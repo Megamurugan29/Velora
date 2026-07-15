@@ -1,8 +1,8 @@
 /**
  * Logo Initialization Utility
  * ===========================
- * Automatically initializes all brand logos throughout the site.
- * Call this after DOM is ready or in DOMContentLoaded event.
+ * Automatically initializes brand logos throughout the site.
+ * Only updates logos that don't already have a valid src attribute.
  */
 
 function initializeBrandLogo() {
@@ -11,16 +11,11 @@ function initializeBrandLogo() {
     
     logoElements.forEach(element => {
         if (element.tagName === 'IMG') {
-            // For img tags, set the src directly
-            element.src = BRAND.logo;
-            element.alt = `${BRAND.name} logo`;
-            element.title = BRAND.name;
-        } else if (element.tagName === 'A' || element.classList.contains('nav-logo')) {
-            // For logo containers, find the img child and update
-            const img = element.querySelector('img');
-            if (img) {
-                img.src = BRAND.logo;
-                img.alt = `${BRAND.name} logo`;
+            // For img tags, only set src if it's not already set or is empty
+            if (!element.src || element.src === '') {
+                element.src = BRAND.logo;
+                element.alt = `${BRAND.name} logo`;
+                element.title = BRAND.name;
             }
         }
     });

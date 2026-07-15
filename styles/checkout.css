@@ -6,16 +6,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
-    /* Home Page Color Palette */
-    --bg-primary: #FAF6EF;
-    --bg-secondary: #FFFFFF;
-    --primary: #5A1F32;
-    --secondary: #D4AF37;
-    --accent: #C89B3C;
-    --text-primary: #2C2C2C;
-    --text-secondary: #6B6B6B;
-    --border-light: #E8DCC4;
-    --shadow-light: rgba(90, 31, 50, 0.08);
+    /* ========================================
+       VELORA BY MEGHA - CONSISTENT LUXURY THEME
+       Beige + Burgundy + Gold Color Palette
+       ======================================== */
+    
+    /* Core Brand Colors */
+    --primary: #6D213C;                    /* Primary Burgundy - Buttons, Headers, Highlights */
+    --primary-burgundy: #6D213C;           /* Primary Burgundy */
+    --secondary-burgundy: #4A162A;         /* Secondary Burgundy - Darker shade */
+    --secondary: #C8A96A;                  /* Gold - Premium accents, hover effects */
+    --accent: #C8A96A;                     /* Gold - Accents */
+    --accent-gold: #C8A96A;                /* Gold - Accent color */
+    
+    /* Background Colors */
+    --bg-primary: #F8F2EC;                 /* Warm Beige - Main background */
+    --bg-secondary: #FFFFFF;               /* White - Card backgrounds */
+    --bg-hover: #FFF8F3;                   /* Light Beige - Hover backgrounds */
+    
+    /* Text Colors */
+    --text-primary: #2F2A2A;               /* Dark text - Primary */
+    --text-secondary: #6B5E5E;             /* Muted text - Secondary */
+    --text-light: #FFFFFF;                 /* Light text - On dark backgrounds */
+    
+    /* UI Elements */
+    --border-light: #E8DDD4;               /* Borders */
+    --border-hover: #C8A96A;               /* Gold borders on hover */
+    --shadow-light: rgba(109, 33, 60, 0.08);
+    
+    /* Status Colors */
+    --success-color: #4CAF50;              /* Success */
+    --error-color: #C62828;                /* Error */
     
     /* Typography - Home Page */
     --font-heading: 'Playfair Display', serif;
@@ -374,26 +395,28 @@
 }
 
 .btn-primary {
-    background: var(--primary);
+    background: var(--primary-burgundy);
     color: white;
 }
 
 .btn-primary:hover {
-    background: var(--accent);
+    background: var(--secondary-burgundy);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(90, 31, 50, 0.2);
+    box-shadow: 0 8px 20px rgba(200, 169, 106, 0.3);
 }
 
 .btn-outline {
     background: var(--bg-secondary);
-    border: 2px solid var(--primary);
-    color: var(--primary);
+    border: 2px solid var(--accent-gold);
+    color: var(--primary-burgundy);
 }
 
 .btn-outline:hover {
-    background: rgba(90, 31, 50, 0.05);
-    border-color: var(--secondary);
-    color: var(--secondary);
+    background: rgba(200, 169, 106, 0.1);
+    border-color: var(--accent-gold);
+    color: var(--primary-burgundy);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(200, 169, 106, 0.2);
 }
 
 /* ========================================

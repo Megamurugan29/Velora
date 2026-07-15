@@ -2,6 +2,63 @@
    ADMIN PANEL STYLES
    ======================================== */
 
+:root {
+    /* ========================================
+       VELORA BY MEGHA - CONSISTENT LUXURY THEME
+       Beige + Burgundy + Gold Color Palette
+       ======================================== */
+    
+    /* Core Brand Colors */
+    --primary: #6D213C;                    /* Primary Burgundy - Buttons, Headers, Highlights */
+    --primary-burgundy: #6D213C;           /* Primary Burgundy */
+    --secondary-burgundy: #4A162A;         /* Secondary Burgundy - Darker shade */
+    --secondary: #C8A96A;                  /* Gold - Premium accents, hover effects */
+    --accent: #C8A96A;                     /* Gold - Accents */
+    --accent-gold: #C8A96A;                /* Gold - Accent color */
+    
+    /* Background Colors */
+    --bg-primary: #F8F2EC;                 /* Warm Beige - Main background */
+    --bg-secondary: #FFFFFF;               /* White - Card backgrounds */
+    --bg-hover: #FFF8F3;                   /* Light Beige - Hover backgrounds */
+    
+    /* Text Colors */
+    --text-primary: #2F2A2A;               /* Dark text - Primary */
+    --text-secondary: #6B5E5E;             /* Muted text - Secondary */
+    --text-light: #FFFFFF;                 /* Light text - On dark backgrounds */
+    --text-dark: #2F2A2A;                  /* Dark text color */
+    --text-muted: #6B5E5E;                 /* Muted text color */
+    
+    /* UI Elements */
+    --border-light: #E8DDD4;               /* Borders */
+    --border-hover: #C8A96A;               /* Gold borders on hover */
+    --shadow-light: rgba(109, 33, 60, 0.08);
+    --shadow-md: 0 4px 12px rgba(109, 33, 60, 0.1);
+    
+    /* Status Colors */
+    --success-color: #4CAF50;              /* Success */
+    --error-color: #C62828;                /* Error */
+    
+    /* Legacy aliases for compatibility */
+    --pearl-white: #FFFFFF;
+    --ivory-cream: #F8F2EC;
+    --marble-light: #F4E8DE;
+    --sapphire-blue: #6D213C;
+    --plum-royal: #4A162A;
+    --deep-maroon: #4A162A;
+    --rose-gold: #C8A96A;
+    --champagne-gold: #C8A96A;
+    --white: #FFFFFF;
+    --font-primary: 'Poppins', sans-serif;
+    --font-display: 'Playfair Display', serif;
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-2xl: 4rem;
+    --transition: all 0.3s ease;
+}
+
 body.admin-dashboard,
 body.admin-login-page {
     background: var(--pearl-white);
@@ -16,7 +73,7 @@ body.admin-login-page {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--sapphire-blue) 0%, var(--plum-royal) 50%, var(--deep-maroon) 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, rgba(109, 33, 60, 0.8) 50%, var(--secondary-burgundy) 100%);
 }
 
 .admin-login-container {
@@ -86,22 +143,24 @@ body.admin-login-page {
 
 .admin-form label {
     font-weight: 600;
-    color: var(--sapphire-blue);
+    color: var(--primary-burgundy);
 }
 
 .admin-form input {
     padding: 12px 16px;
-    border: 2px solid rgba(232, 197, 71, 0.2);
+    border: 2px solid var(--border-light);
     border-radius: 6px;
     font-family: inherit;
     font-size: 1rem;
     transition: var(--transition);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
 }
 
 .admin-form input:focus {
     outline: none;
-    border-color: var(--rose-gold);
-    box-shadow: 0 0 0 3px rgba(232, 164, 124, 0.1);
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 0 3px rgba(200, 169, 106, 0.2);
 }
 
 .admin-form .checkbox {
@@ -114,14 +173,28 @@ body.admin-login-page {
     padding: 12px 16px;
     font-size: 1rem;
     font-weight: 600;
+    background: var(--primary-burgundy);
+    color: var(--text-light);
+    border: 2px solid var(--accent-gold);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transition);
+    width: 100%;
+}
+
+.admin-login-btn:hover {
+    background: var(--secondary-burgundy);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(200, 169, 106, 0.3);
 }
 
 .admin-info {
-    background: rgba(232, 197, 71, 0.1);
+    background: rgba(200, 169, 106, 0.1);
     padding: var(--spacing-lg);
     border-radius: 6px;
     margin: var(--spacing-lg) 0;
     font-size: 0.9rem;
+    border-left: 4px solid var(--accent-gold);
 }
 
 .admin-info p {
@@ -135,14 +208,14 @@ body.admin-login-page {
 }
 
 .admin-footer a {
-    color: var(--sapphire-blue);
+    color: var(--primary-burgundy);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 .admin-footer a:hover {
-    color: var(--rose-gold);
+    color: var(--accent-gold);
 }
 
 /* ========================================
@@ -158,7 +231,7 @@ body.admin-login-page {
 
 .admin-sidebar {
     grid-row: 1 / -1;
-    background: linear-gradient(135deg, var(--sapphire-blue), var(--plum-royal));
+    background: linear-gradient(135deg, var(--primary-burgundy), var(--secondary-burgundy));
     color: var(--white);
     padding: var(--spacing-lg);
     overflow-y: auto;
@@ -177,12 +250,12 @@ body.admin-login-page {
     object-fit: contain;
     display: block;
     margin: 0 auto var(--spacing-sm);
-    filter: drop-shadow(0 0 0 rgba(232, 168, 124, 0.3));
+    filter: drop-shadow(0 0 0 rgba(200, 169, 106, 0.3));
     transition: var(--transition);
 }
 
 .admin-branding:hover .brand-logo {
-    filter: drop-shadow(0 0 8px rgba(232, 168, 124, 0.6));
+    filter: drop-shadow(0 0 8px rgba(200, 169, 106, 0.6));
 }
 
 .admin-branding h2 {
@@ -214,8 +287,8 @@ body.admin-login-page {
 }
 
 .admin-menu-item.active {
-    background: var(--rose-gold);
-    color: var(--white);
+    background: var(--accent-gold);
+    color: var(--text-dark);
 }
 
 .admin-menu-item.danger:hover {
@@ -229,18 +302,18 @@ body.admin-login-page {
 .admin-header {
     grid-column: 2;
     background: var(--white);
-    border-bottom: 2px solid rgba(232, 197, 71, 0.2);
+    border-bottom: 2px solid var(--border-light);
     padding: var(--spacing-md) var(--spacing-xl);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-light);
 }
 
 .admin-title h1 {
     font-family: var(--font-display);
     font-size: 1.8rem;
-    color: var(--sapphire-blue);
+    color: var(--primary-burgundy);
 }
 
 .admin-profile {
@@ -253,7 +326,7 @@ body.admin-login-page {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--rose-gold), var(--champagne-gold));
+    background: linear-gradient(135deg, var(--primary-burgundy), var(--accent-gold));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -292,7 +365,7 @@ body.admin-login-page {
     display: flex;
     align-items: center;
     gap: var(--spacing-lg);
-    border-left: 5px solid var(--rose-gold);
+    border-left: 5px solid var(--accent-gold);
 }
 
 .metric-icon {
@@ -334,19 +407,19 @@ body.admin-login-page {
 }
 
 .section-header h2 {
-    color: var(--sapphire-blue);
+    color: var(--primary-burgundy);
     font-size: 1.5rem;
 }
 
 .view-all-link {
-    color: var(--rose-gold);
+    color: var(--accent-gold);
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
 }
 
 .view-all-link:hover {
-    color: var(--sapphire-blue);
+    color: var(--primary-burgundy);
 }
 
 .admin-table {
@@ -355,15 +428,15 @@ body.admin-login-page {
 }
 
 .admin-table thead {
-    background: rgba(232, 197, 71, 0.1);
+    background: rgba(200, 169, 106, 0.1);
 }
 
 .admin-table th {
     padding: 12px 16px;
     text-align: left;
     font-weight: 600;
-    color: var(--sapphire-blue);
-    border-bottom: 2px solid rgba(232, 197, 71, 0.3);
+    color: var(--primary-burgundy);
+    border-bottom: 2px solid var(--accent-gold);
 }
 
 .admin-table td {
@@ -372,7 +445,7 @@ body.admin-login-page {
 }
 
 .admin-table tbody tr:hover {
-    background: rgba(232, 197, 71, 0.05);
+    background: rgba(200, 169, 106, 0.05);
 }
 
 .admin-table .empty-state {
@@ -414,11 +487,11 @@ body.admin-login-page {
 }
 
 .form-section h3 {
-    color: var(--sapphire-blue);
+    color: var(--primary-burgundy);
     margin-bottom: var(--spacing-lg);
     font-size: 1.3rem;
     padding-bottom: var(--spacing-md);
-    border-bottom: 2px solid rgba(232, 197, 71, 0.2);
+    border-bottom: 2px solid var(--border-light);
 }
 
 .form-group {
@@ -430,40 +503,43 @@ body.admin-login-page {
 
 .form-group label {
     font-weight: 600;
-    color: var(--sapphire-blue);
+    color: var(--primary-burgundy);
 }
 
 .form-group input,
 .form-group textarea,
 .form-group select {
     padding: 12px 16px;
-    border: 2px solid rgba(232, 197, 71, 0.2);
+    border: 2px solid var(--border-light);
     border-radius: 6px;
     font-family: inherit;
     font-size: 1rem;
     transition: var(--transition);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
 }
 
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
     outline: none;
-    border-color: var(--rose-gold);
-    box-shadow: 0 0 0 3px rgba(232, 164, 124, 0.1);
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 0 3px rgba(200, 169, 106, 0.2);
 }
 
 .file-upload {
-    border: 2px dashed rgba(232, 197, 71, 0.3);
+    border: 2px dashed var(--accent-gold);
     border-radius: 6px;
     padding: var(--spacing-xl);
     text-align: center;
     cursor: pointer;
     transition: var(--transition);
+    background: rgba(200, 169, 106, 0.05);
 }
 
 .file-upload:hover {
-    border-color: var(--rose-gold);
-    background: rgba(232, 197, 71, 0.05);
+    border-color: var(--accent-gold);
+    background: rgba(200, 169, 106, 0.1);
 }
 
 .file-upload input {
@@ -511,19 +587,19 @@ body.admin-login-page {
     gap: var(--spacing-sm);
     cursor: pointer;
     padding: 8px 12px;
-    border: 2px solid rgba(232, 197, 71, 0.2);
+    border: 2px solid var(--border-light);
     border-radius: 6px;
     transition: var(--transition);
 }
 
 .size-selector label:hover {
-    border-color: var(--rose-gold);
-    background: rgba(232, 197, 71, 0.05);
+    border-color: var(--accent-gold);
+    background: rgba(200, 169, 106, 0.05);
 }
 
 .size-selector input {
     cursor: pointer;
-    accent-color: var(--rose-gold);
+    accent-color: var(--accent-gold);
 }
 
 .checkbox-group {
@@ -540,7 +616,7 @@ body.admin-login-page {
 }
 
 .checkbox-group input {
-    accent-color: var(--rose-gold);
+    accent-color: var(--accent-gold);
 }
 
 .form-actions {
@@ -549,7 +625,7 @@ body.admin-login-page {
     justify-content: flex-end;
     margin-top: var(--spacing-xl);
     padding-top: var(--spacing-lg);
-    border-top: 2px solid rgba(232, 197, 71, 0.2);
+    border-top: 2px solid var(--border-light);
 }
 
 .form-actions button {

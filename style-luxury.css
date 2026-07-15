@@ -6,17 +6,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
-    /* Color Palette */
-    --bg-primary: #FAF6EF;
-    --bg-secondary: #FFFFFF;
-    --primary: #5A1F32;
-    --secondary: #D4AF37;
-    --accent: #C89B3C;
-    --text-primary: #2C2C2C;
-    --text-secondary: #6B6B6B;
-    --border-light: #E8DCC4;
-    --shadow-light: rgba(90, 31, 50, 0.08);
+    /* ========================================
+       VELORA BY MEGHA - CONSISTENT LUXURY THEME
+       Beige + Burgundy + Gold Color Palette
+       ======================================== */
     
+    /* Core Brand Colors */
+    --primary-burgundy: #6D213C;           /* Primary Burgundy - Buttons, Headers, Highlights */
+    --secondary-burgundy: #4A162A;         /* Deep Burgundy - Secondary elements */
+    --accent-gold: #C8A96A;                /* Gold - Premium accents, hover effects */
+    
+    /* Background Colors */
+    --bg-primary: #F8F2EC;                 /* Warm Beige - Main background */
+    --bg-secondary: #FFF8F3;               /* Light Beige - Section backgrounds */
+    --bg-card: #FFFFFF;                    /* White - Card backgrounds */
+    
+    /* Text Colors */
+    --text-dark: #2F2A2A;                  /* Dark text - Primary */
+    --text-secondary: #6B5E5E;             /* Muted text - Secondary */
+    --text-light: #FFFFFF;                 /* Light text - On dark backgrounds */
+    
+    /* UI Elements */
+    --border-color: #E8DDD4;               /* Borders */
+    --hover-bg: #F4E8DE;                   /* Hover background */
+    
+    /* Status Colors */
+    --success-color: #4CAF50;              /* Success */
+    --error-color: #C62828;                /* Error */
+    
+    /* Legacy aliases for compatibility with shop.css and checkout.css */
+    --primary: #6D213C;
+    --secondary: #C8A96A;
+    --accent: #C8A96A;
+    --text-primary: #2F2A2A;
+    --border-light: #E8DDD4;
+    --shadow-light: rgba(109, 33, 60, 0.08);
+
     /* Typography */
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Poppins', sans-serif;
@@ -121,8 +146,8 @@ a:hover {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: var(--bg-secondary);
-    box-shadow: 0 2px 15px var(--shadow-light);
+    background: var(--primary-burgundy);
+    box-shadow: 0 2px 15px rgba(109, 33, 60, 0.2);
     padding: 1rem 0;
 }
 
@@ -141,12 +166,12 @@ a:hover {
     gap: var(--spacing-sm);
     font-size: 1.25rem;
     font-weight: 700;
-    color: var(--primary);
+    color: var(--text-light);
     text-decoration: none;
 }
 
 .nav-logo:hover {
-    color: var(--accent);
+    color: var(--accent-gold);
 }
 
 .logo-container {
@@ -1492,27 +1517,29 @@ a:hover {
 }
 
 .btn-primary {
-    background: var(--primary);
+    background: var(--primary-burgundy);
     color: white;
-    border: 2px solid var(--primary);
+    border: 2px solid var(--accent-gold);
 }
 
 .btn-primary:hover {
-    background: var(--accent);
-    border-color: var(--accent);
+    background: var(--secondary-burgundy);
+    border-color: var(--accent-gold);
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(200, 155, 60, 0.2);
+    box-shadow: 0 10px 30px rgba(200, 169, 106, 0.3);
 }
 
 .btn-outline {
     background: transparent;
-    color: var(--primary);
-    border: 2px solid var(--primary);
+    color: var(--primary-burgundy);
+    border: 2px solid var(--accent-gold);
 }
 
 .btn-outline:hover {
-    background: var(--primary);
-    color: white;
+    background: var(--accent-gold);
+    color: var(--text-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(200, 169, 106, 0.3);
 }
 
 /* ============================================
