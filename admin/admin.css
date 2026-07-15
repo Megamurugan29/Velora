@@ -43,6 +43,20 @@ body.admin-login-page {
     margin-bottom: var(--spacing-sm);
 }
 
+.admin-logo .brand-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto var(--spacing-sm);
+    filter: drop-shadow(0 0 0 transparent);
+    transition: var(--transition);
+}
+
+.admin-logo:hover .brand-logo {
+    filter: drop-shadow(0 0 12px rgba(232, 168, 124, 0.6));
+}
+
 .admin-logo h1 {
     color: var(--sapphire-blue);
     font-size: 1.8rem;
@@ -155,6 +169,20 @@ body.admin-login-page {
     text-align: center;
     padding-bottom: var(--spacing-lg);
     border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.admin-branding .brand-logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto var(--spacing-sm);
+    filter: drop-shadow(0 0 0 rgba(232, 168, 124, 0.3));
+    transition: var(--transition);
+}
+
+.admin-branding:hover .brand-logo {
+    filter: drop-shadow(0 0 8px rgba(232, 168, 124, 0.6));
 }
 
 .admin-branding h2 {

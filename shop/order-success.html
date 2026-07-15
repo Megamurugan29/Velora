@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmed - VelorabyMegha</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../styles/checkout.css">
+    <script src="../config.js"></script>
+    <style>
+        .order-success-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: var(--spacing-lg);
+            background: var(--bg-primary);
+            min-height: calc(100vh - 200px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .success-card {
+            background: var(--bg-secondary);
+            padding: var(--spacing-xl);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px var(--shadow-light);
+            text-align: center;
+            border: 1px solid var(--border-light);
+            animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin: 0 auto var(--spacing-xl);
+            animation: scaleIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.25);
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .success-card h1 {
+            color: var(--primary);
+            font-family: var(--font-heading);
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            margin-bottom: var(--spacing-md);
+            font-weight: 700;
+        }
+
+        .success-card p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .order-details {
+            background: rgba(212, 175, 55, 0.05);
+            padding: var(--spacing-lg);
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+            margin: var(--spacing-xl) 0;
+            text-align: left;
+        }
+
+        .order-detail-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-md) 0;
+            border-bottom: 1px solid var(--border-light);
+            color: var(--text-primary);
+        }
+
+        .order-detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .detail-value {
+            color: var(--primary);
+            font-weight: 600;
+            font-family: var(--font-heading);
+        }
+
+        .order-number {
+            font-size: 1.2rem;
+            color: var(--secondary);
+        }
+
+        .confirmation-message {
+            background: rgba(39, 174, 96, 0.08);
+            border-left: 4px solid #27ae60;
+            padding: var(--spacing-md);
+            border-radius: 4px;
+            margin: var(--spacing-lg) 0;
+            text-align: left;
+        }
+
+        .confirmation-message p {
+            color: var(--text-primary);
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: center;
+            margin-top: var(--spacing-xl);
+            flex-wrap: wrap;
+        }
+
+        .btn-success {
+            display: inline-block;
+            padding: 14px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-family: var(--font-body);
+        }
+
+        .btn-primary-success {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary-success:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(90, 31, 50, 0.2);
+        }
+
+        .btn-outline-success {
+            background: var(--bg-secondary);
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline-success:hover {
+            background: rgba(90, 31, 50, 0.05);
+            border-color: var(--secondary);
+            color: var(--secondary);
+        }
+
+        .support-info {
+            margin-top: var(--spacing-xl);
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid var(--border-light);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .support-info a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .support-info a:hover {
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .order-success-container {
+                padding: var(--spacing-md);
+            }
+
+            .success-card {
+                padding: var(--spacing-lg);
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .btn-success {
+                width: 100%;
+            }
+
+            .order-details {
+                padding: var(--spacing-md);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .success-card {
+                padding: var(--spacing-md);
+            }
+
+            .success-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 2.5rem;
+            }
+
+            .success-card h1 {
+                font-size: 1.3rem;
+            }
+
+            .btn-success {
+                padding: 12px 24px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo" aria-label="VelorabyMegha Home">
+                <div class="logo-container">
+                    <img src="../assets/images/logo/butterfly-logo.svg" alt="VelorabyMegha logo" class="brand-logo" data-logo-src="true" />
+                </div>
+                <span class="logo-text">VelorabyMegha</span>
+            </a>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="products.html" class="nav-link">Shop</a></li>
+                <li><a href="cart.html" class="nav-link">Cart</a></li>
+                <li><a href="../auth/profile.html" class="nav-link">Account</a></li>
+                <li class="nav-divider"></li>
+                <li><a href="cart.html" class="nav-link nav-cart">
+                    <span class="cart-icon">🛒</span>
+                    <span class="cart-text">Cart</span>
+                </a></li>
+                <li><a href="#" class="nav-link nav-wishlist" id="mobileWishlist">
+                    <span class="wishlist-icon">♡</span>
+                    <span class="wishlist-text">Wishlist</span>
+                </a></li>
+                <li><button class="nav-link nav-profile-btn" id="mobileProfileBtn" aria-label="Account Menu">
+                    <span class="profile-icon">👤</span>
+                    <span class="profile-text">Account</span>
+                </button></li>
+            </ul>
+
+            <!-- Right Side Icons -->
+            <div class="nav-icons">
+                <a href="#" class="nav-icon wishlist-icon-header" id="wishlistToggle" aria-label="Wishlist">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                    <span class="wishlist-badge" id="wishlistBadge">0</span>
+                </a>
+
+                <a href="cart.html" class="nav-icon cart-icon-header" aria-label="Shopping Cart">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                </a>
+
+                <!-- Profile Dropdown -->
+                <div class="nav-profile-dropdown">
+                    <button class="nav-icon profile-icon-header" id="profileToggle" aria-label="Profile Menu" aria-expanded="false">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </button>
+                    <div class="profile-dropdown-menu" id="profileDropdown">
+                        <a href="../auth/signin.html" class="dropdown-item">
+                            <span class="dropdown-icon">👤</span>
+                            <span>Sign In</span>
+                        </a>
+                        <a href="../auth/signup.html" class="dropdown-item">
+                            <span class="dropdown-icon">📝</span>
+                            <span>Sign Up</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="../auth/forgot-password.html" class="dropdown-item">
+                            <span class="dropdown-icon">🔑</span>
+                            <span>Forgot Password</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Order Confirmed</h1>
+        <p>Thank you for your purchase</p>
+    </div>
+
+    <!-- Success Container -->
+    <div class="order-success-container">
+        <div class="success-card">
+            <div class="success-icon">✓</div>
+            
+            <h1>Order Successfully Placed!</h1>
+            <p>Your order has been confirmed and will be processed shortly.</p>
+
+            <div class="confirmation-message">
+                <p>📧 A confirmation email has been sent to your registered email address with all order details and tracking information.</p>
+            </div>
+
+            <div class="order-details">
+                <div class="order-detail-item">
+                    <span class="detail-label">Order Number</span>
+                    <span class="detail-value order-number" id="orderNumber">#ORD-2024-001234</span>
+                </div>
+                <div class="order-detail-item">
+                    <span class="detail-label">Order Date</span>
+                    <span class="detail-value" id="orderDate">January 15, 2024</span>
+                </div>
+                <div class="order-detail-item">
+                    <span class="detail-label">Estimated Delivery</span>
+                    <span class="detail-value" id="deliveryDate">January 22-25, 2024</span>
+                </div>
+                <div class="order-detail-item">
+                    <span class="detail-label">Total Amount</span>
+                    <span class="detail-value" id="totalAmount">₹12,999.00</span>
+                </div>
+            </div>
+
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-top: var(--spacing-lg);">
+                You can track your order from your account dashboard. We'll notify you at every step of the delivery process.
+            </p>
+
+            <div class="action-buttons">
+                <a href="products.html" class="btn-success btn-primary-success">Continue Shopping</a>
+                <a href="../auth/profile.html" class="btn-success btn-outline-success">View My Orders</a>
+            </div>
+
+            <div class="support-info">
+                <p>Need help? <a href="#" onclick="alert('Support contact information would go here')">Contact our customer service team</a> or check our <a href="#">FAQ section</a>.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-luxury" id="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About VelorabyMegha</h4>
+                <p>Premium luxury boutique offering exquisite fashion for the discerning customer. Experience elegance redefined.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">f</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="Twitter">𝕏</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="products.html">Shop</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="#shipping">Shipping Info</a></li>
+                    <li><a href="#returns">Returns & Exchanges</a></li>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a href="#terms">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: info@velorabymegha.com</p>
+                <p>Phone: +91 XXXX XXXX XX</p>
+                <p>Address: VelorabyMegha, Luxury District</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 VelorabyMegha. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        // Set dynamic order information
+        document.addEventListener('DOMContentLoaded', function() {
+            // Generate random order number
+            const orderNumber = '#ORD-2024-' + Math.floor(Math.random() * 1000000).toString().padStart(6, '0');
+            document.getElementById('orderNumber').textContent = orderNumber;
+
+            // Set today's date
+            const today = new Date();
+            const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('orderDate').textContent = today.toLocaleDateString('en-US', dateOptions);
+
+            // Set estimated delivery date (7-10 days)
+            const delivery = new Date(today);
+            delivery.setDate(delivery.getDate() + 7 + Math.floor(Math.random() * 3));
+            document.getElementById('deliveryDate').textContent = delivery.toLocaleDateString('en-US', dateOptions);
+
+            // Get total from session/localStorage if available
+            const total = sessionStorage.getItem('orderTotal') || '12,999.00';
+            document.getElementById('totalAmount').textContent = '₹' + total;
+        });
+    </script>
+</body>
+</html>

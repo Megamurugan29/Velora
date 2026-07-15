@@ -6,6 +6,8 @@
 // Initialize on DOM Load
 document.addEventListener('DOMContentLoaded', function() {
     initNavigationMenu();
+    initProfileDropdown();
+    initWishlistIcon();
     initSmoothScrolling();
     initContactForm();
     initProductFilters();
@@ -56,6 +58,119 @@ function initNavigationMenu() {
             navbar.style.boxShadow = '0 8px 30px rgba(15, 15, 15, 0.15)';
         }
     });
+}
+
+/* ========================================
+   PROFILE DROPDOWN
+   ======================================== */
+
+function initProfileDropdown() {
+    const profileToggle = document.getElementById('profileToggle');
+    const profileDropdown = document.getElementById('profileDropdown');
+    const mobileProfileBtn = document.getElementById('mobileProfileBtn');
+
+    if (!profileToggle || !profileDropdown) return;
+
+    // Desktop profile button
+    profileToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        profileDropdown.classList.toggle('active');
+        if (profileToggle.getAttribute('aria-expanded') === 'false') {
+            profileToggle.setAttribute('aria-expanded', 'true');
+        } else {
+            profileToggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    // Mobile profile button
+    if (mobileProfileBtn) {
+        mobileProfileBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            profileDropdown.classList.toggle('active');
+        });
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!profileToggle.contains(e.target) && !profileDropdown.contains(e.target)) {
+            profileDropdown.classList.remove('active');
+            if (profileToggle) {
+                profileToggle.setAttribute('aria-expanded', 'false');
+            }
+        }
+    });
+
+    // Close dropdown when a link is clicked
+    const dropdownItems = profileDropdown.querySelectorAll('.dropdown-item');
+    dropdownItems.forEach(item => {
+        item.addEventListener('click', function() {
+            profileDropdown.classList.remove('active');
+            if (profileToggle) {
+                profileToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    });
+
+    // Keyboard accessibility (Escape to close)
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && profileDropdown.classList.contains('active')) {
+            profileDropdown.classList.remove('active');
+            if (profileToggle) {
+                profileToggle.setAttribute('aria-expanded', 'false');
+                profileToggle.focus();
+            }
+        }
+    });
+}
+
+/* ========================================
+   WISHLIST ICON
+   ======================================== */
+
+function initWishlistIcon() {
+    const wishlistToggle = document.getElementById('wishlistToggle');
+    const wishlistBadge = document.getElementById('wishlistBadge');
+    const mobileWishlist = document.getElementById('mobileWishlist');
+
+    if (!wishlistToggle) return;
+
+    // Get wishlist count from localStorage
+    function updateWishlistBadge() {
+        const wishlist = JSON.parse(localStorage.getItem('veloraWishlist') || '[]');
+        const count = wishlist.length;
+        if (wishlistBadge) {
+            wishlistBadge.textContent = count;
+            if (count === 0) {
+                wishlistBadge.style.display = 'none';
+            } else {
+                wishlistBadge.style.display = 'flex';
+            }
+        }
+    }
+
+    // Initialize badge
+    updateWishlistBadge();
+
+    // Add event listener for wishlist changes
+    window.addEventListener('wishlistUpdated', updateWishlistBadge);
+
+    // Desktop wishlist link
+    wishlistToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        // Navigate to wishlist page (you can create this later)
+        // For now, just show the count or navigate to a placeholder
+        window.location.href = 'shop/wishlist.html';
+    });
+
+    // Mobile wishlist link
+    if (mobileWishlist) {
+        mobileWishlist.addEventListener('click', function(e) {
+            if (this.getAttribute('href') === '#') {
+                e.preventDefault();
+                window.location.href = 'shop/wishlist.html';
+            }
+        });
+    }
 }
 
 /* ========================================

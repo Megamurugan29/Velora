@@ -6,15 +6,18 @@
     <title>Shopping Cart - VelorabyMegha</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../styles/shop.css">
+    <script src="../config.js"></script>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
-                <span class="logo-icon">👑</span>
+            <a href="../index.html" class="nav-logo" aria-label="VelorabyMegha Home">
+                <div class="logo-container">
+                    <img src="../assets/images/logo/butterfly-logo.svg" alt="VelorabyMegha logo" class="brand-logo" data-logo-src="true" />
+                </div>
                 <span class="logo-text">VelorabyMegha</span>
-            </div>
+            </a>
             <div class="nav-toggle" id="navToggle">
                 <span></span>
                 <span></span>
@@ -24,7 +27,64 @@
                 <li><a href="../index.html" class="nav-link">Home</a></li>
                 <li><a href="products.html" class="nav-link">Shop</a></li>
                 <li><a href="cart.html" class="nav-link">Cart</a></li>
+                <li><a href="../auth/profile.html" class="nav-link">Account</a></li>
+                <li class="nav-divider"></li>
+                <li><a href="cart.html" class="nav-link nav-cart">
+                    <span class="cart-icon">🛒</span>
+                    <span class="cart-text">Cart</span>
+                </a></li>
+                <li><a href="#" class="nav-link nav-wishlist" id="mobileWishlist">
+                    <span class="wishlist-icon">♡</span>
+                    <span class="wishlist-text">Wishlist</span>
+                </a></li>
+                <li><button class="nav-link nav-profile-btn" id="mobileProfileBtn" aria-label="Account Menu">
+                    <span class="profile-icon">👤</span>
+                    <span class="profile-text">Account</span>
+                </button></li>
             </ul>
+
+            <!-- Right Side Icons -->
+            <div class="nav-icons">
+                <a href="#" class="nav-icon wishlist-icon-header" id="wishlistToggle" aria-label="Wishlist">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                    <span class="wishlist-badge" id="wishlistBadge">0</span>
+                </a>
+
+                <a href="cart.html" class="nav-icon cart-icon-header" aria-label="Shopping Cart">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                </a>
+
+                <!-- Profile Dropdown -->
+                <div class="nav-profile-dropdown">
+                    <button class="nav-icon profile-icon-header" id="profileToggle" aria-label="Profile Menu" aria-expanded="false">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </button>
+                    <div class="profile-dropdown-menu" id="profileDropdown">
+                        <a href="../auth/signin.html" class="dropdown-item">
+                            <span class="dropdown-icon">👤</span>
+                            <span>Sign In</span>
+                        </a>
+                        <a href="../auth/signup.html" class="dropdown-item">
+                            <span class="dropdown-icon">📝</span>
+                            <span>Sign Up</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="../auth/forgot-password.html" class="dropdown-item">
+                            <span class="dropdown-icon">🔑</span>
+                            <span>Forgot Password</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -130,9 +190,31 @@
                 <div class="footer-section">
                     <h4>Follow Us</h4>
                     <div class="social-links">
-                        <a href="#" class="social-icon">f</a>
-                        <a href="#" class="social-icon">I</a>
-                        <a href="#" class="social-icon">P</a>
+                        <a href="https://www.facebook.com/velorabymegha" target="_blank" rel="noopener" class="social-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/velorabymegha" target="_blank" rel="noopener" class="social-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm4.441 7.547h-1.436c-.57 0-.701.242-.701.811v1.062h2.121l-.276 2.141h-1.845v6.689h-2.206V11.561H9.654v-2.141h1.444V8.203c0-1.433.87-2.216 2.157-2.216 1.013 0 1.889.075 2.141.109v1.888z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.pinterest.com/velorabymegha" target="_blank" rel="noopener" class="social-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 19.138c-1.933 0-3.738-.574-5.251-1.56l.742-2.48c.351.084.718.13 1.095.13 1.968 0 3.566-1.598 3.566-3.566 0-1.968-1.598-3.566-3.566-3.566s-3.566 1.598-3.566 3.566c0 .377.046.744.13 1.095l-2.48.742C3.422 15.738 2.862 14.933 2.862 12c0-5.076 4.196-9.172 9.172-9.172 5.076 0 9.172 4.196 9.172 9.172 0 5.076-4.196 9.172-9.172 9.172z"/>
+                            </svg>
+                        </a>
+                        <a href="https://wa.me/917401393834" target="_blank" rel="noopener" class="social-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 20.286c-4.532 0-8.286-3.754-8.286-8.286S7.468 3.714 12 3.714s8.286 3.754 8.286 8.286-3.754 8.286-8.286 8.286zm3.857-9.857c0-.572-.454-1.026-1.026-1.026h-1.026c-.572 0-1.026.454-1.026 1.026v2.052c0 .572.454 1.026 1.026 1.026h1.026c.572 0 1.026-.454 1.026-1.026v-2.052zm-4.883 0c0-.572-.454-1.026-1.026-1.026h-1.026c-.572 0-1.026.454-1.026 1.026v2.052c0 .572.454 1.026 1.026 1.026h1.026c.572 0 1.026-.454 1.026-1.026v-2.052z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.youtube.com/@velorabymegha" target="_blank" rel="noopener" class="social-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.146 10.646l-6-3.5c-.324-.188-.73-.188-1.053 0-.324.188-.546.527-.546.911v7c0 .384.222.723.546.911.162.094.34.141.527.141.186 0 .365-.047.526-.141l6-3.5c.325-.188.545-.527.545-.911s-.22-.723-.545-.911z"/>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -144,5 +226,6 @@
 
     <script src="../script.js"></script>
     <script src="../js/cart.js"></script>
+    <script src="../js/logo-init.js"></script>
 </body>
 </html>
