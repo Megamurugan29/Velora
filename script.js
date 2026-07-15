@@ -157,9 +157,13 @@ function initWishlistIcon() {
     // Desktop wishlist link
     wishlistToggle.addEventListener('click', function(e) {
         e.preventDefault();
-        // Navigate to wishlist page (you can create this later)
-        // For now, just show the count or navigate to a placeholder
-        window.location.href = 'shop/wishlist.html';
+        // Show wishlist count in an alert for now
+        const wishlist = JSON.parse(localStorage.getItem('veloraWishlist') || '[]');
+        if (wishlist.length === 0) {
+            alert('Your wishlist is empty. Add items by clicking the heart icon on products!');
+        } else {
+            alert(`You have ${wishlist.length} item(s) in your wishlist.\n\nWishlist feature coming soon!`);
+        }
     });
 
     // Mobile wishlist link
@@ -167,7 +171,12 @@ function initWishlistIcon() {
         mobileWishlist.addEventListener('click', function(e) {
             if (this.getAttribute('href') === '#') {
                 e.preventDefault();
-                window.location.href = 'shop/wishlist.html';
+                const wishlist = JSON.parse(localStorage.getItem('veloraWishlist') || '[]');
+                if (wishlist.length === 0) {
+                    alert('Your wishlist is empty. Add items by clicking the heart icon on products!');
+                } else {
+                    alert(`You have ${wishlist.length} item(s) in your wishlist.\n\nWishlist feature coming soon!`);
+                }
             }
         });
     }
@@ -335,7 +344,10 @@ function addToCart(product) {
     
     // Navigate to cart page after 1.5 seconds to allow notification to show
     setTimeout(function() {
-        window.location.href = 'shop/cart.html';
+        // Determine correct path based on current location
+        const currentPath = window.location.pathname;
+        const cartPath = currentPath.includes('/shop/') ? 'cart.html' : 'shop/cart.html';
+        window.location.href = cartPath;
     }, 1500);
 }
 
