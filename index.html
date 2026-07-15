@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="VelorabyMegha - Premium Women's Kurti Boutique. Explore elegant kurtis for every woman with our luxury collection.">
-    <meta name="keywords" content="kurtis, women's fashion, boutique, luxury kurtis, cotton kurtis, designer kurtis">
+    <meta name="description" content="VelorabyMegha - Premium Mughal-Inspired Luxury Ethnic Fashion. Discover exquisite designer kurtis and couture wear from our palace-inspired collection.">
+    <meta name="keywords" content="luxury kurtis, designer ethnic wear, Mughal fashion, couture, premium Indian wear">
     <meta name="author" content="VelorabyMegha">
-    <meta name="theme-color" content="#4a148c">
+    <meta name="theme-color" content="#1d5d4c">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="VelorabyMegha">
-    <title>VelorabyMegha - Elegant Kurtis for Every Woman</title>
+    <title>VelorabyMegha - Luxury Mughal-Inspired Couture</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Navigation Bar -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <span class="logo-icon">👗</span>
+                <span class="logo-icon">👑</span>
                 <span class="logo-text">VelorabyMegha</span>
             </div>
             <div class="nav-toggle" id="navToggle">
@@ -28,302 +28,334 @@
             </div>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#featured" class="nav-link">Featured</a></li>
                 <li><a href="#collection" class="nav-link">Collection</a></li>
-                <li><a href="#new-arrivals" class="nav-link">New Arrivals</a></li>
-                <li><a href="#best-sellers" class="nav-link">Best Sellers</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#artisan" class="nav-link">Artisan</a></li>
+                <li><a href="#about" class="nav-link">Heritage</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Full-Screen Image -->
     <section class="hero" id="home">
-        <div class="hero-background">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-        </div>
-        <div class="hero-content">
-            <h1 class="hero-title">VelorabyMegha</h1>
-            <p class="hero-tagline">Elegant Kurtis for Every Woman</p>
-            <p class="hero-subtitle">Experience luxury and elegance with our premium kurti collection</p>
-            <div class="hero-buttons">
-                <button class="btn btn-primary" onclick="document.getElementById('collection').scrollIntoView({behavior: 'smooth'})">Shop Now</button>
-                <button class="btn btn-secondary" onclick="document.getElementById('collection').scrollIntoView({behavior: 'smooth'})">Explore Collection</button>
+        <div class="hero-wrapper">
+            <div class="hero-image" style="background: linear-gradient(135deg, #6b1e2f 0%, #1d5d4c 50%, #003d5c 100%);"></div>
+            
+            <!-- Cinematic Overlay -->
+            <div class="hero-overlay"></div>
+            
+            <!-- Mughal Arch Shapes -->
+            <svg class="arch-decoration" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                    <linearGradient id="archGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#d4af37;stop-opacity:0.15" />
+                        <stop offset="100%" style="stop-color:#c9a961;stop-opacity:0" />
+                    </linearGradient>
+                </defs>
+                <!-- Left Arch -->
+                <path d="M 0 200 Q 150 50 250 200 L 250 600 L 0 600 Z" fill="url(#archGradient)" />
+                <!-- Right Arch -->
+                <path d="M 1200 200 Q 1050 50 950 200 L 950 600 L 1200 600 Z" fill="url(#archGradient)" />
+                <!-- Center Decorative Arch -->
+                <path d="M 450 100 Q 600 0 750 100" stroke="#d4af37" stroke-width="2" fill="none" opacity="0.3" />
+            </svg>
+            
+            <!-- Hero Content -->
+            <div class="hero-content">
+                <div class="hero-label">Luxury Heritage Fashion</div>
+                <h1 class="hero-title">VelorabyMegha</h1>
+                <p class="hero-subtitle">Mughal-Inspired Couture for the Modern Woman</p>
+                <p class="hero-description">Experience the regal elegance of palace-inspired fashion with meticulously crafted designer kurtis and premium ethnic wear</p>
+                
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="document.getElementById('featured').scrollIntoView({behavior: 'smooth'})">Explore Collection</button>
+                    <button class="btn btn-outline">View Lookbook</button>
+                </div>
+            </div>
+            
+            <!-- Scroll Indicator -->
+            <div class="scroll-indicator">
+                <span></span>
             </div>
         </div>
     </section>
 
-    <!-- Categories Section -->
-    <section class="categories" id="categories">
+    <!-- Featured Collection Section -->
+    <section class="featured-collection" id="featured">
         <div class="container">
-            <h2 class="section-title">Shop by Category</h2>
-            <div class="categories-grid">
-                <div class="category-card">
-                    <div class="category-icon">👕</div>
-                    <h3>Cotton Kurtis</h3>
-                    <p>Soft and comfortable everyday wear</p>
+            <div class="section-header">
+                <h2 class="section-title">Signature Collection</h2>
+                <p class="section-subtitle">Hand-selected masterpieces from our palace archives</p>
+            </div>
+            
+            <div class="featured-grid">
+                <div class="featured-card featured-main">
+                    <div class="featured-image">
+                        <img src="https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?w=400&h=500&fit=crop" alt="Emerald Maharani">
+                        <div class="featured-overlay">
+                            <button class="btn btn-primary" onclick="addToCart({id: 'FEAT-001', name: 'Emerald Maharani', price: 2499, image: '👗'})">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="featured-content">
+                        <h3>Emerald Maharani</h3>
+                        <p class="price">₹2,499</p>
+                        <p class="description">Opulent emerald silk kurti with intricate gold embroidery, inspired by Mughal palace traditions</p>
+                    </div>
                 </div>
-                <div class="category-card">
-                    <div class="category-icon">🎨</div>
-                    <h3>Printed Kurtis</h3>
-                    <p>Vibrant designs and patterns</p>
+                
+                <div class="featured-card featured-small">
+                    <div class="featured-image">
+                        <img src="https://images.pexels.com/photos/2220316/pexels-photo-2220316.jpeg?w=300&h=400&fit=crop" alt="Maroon Palace Grace">
+                        <div class="featured-overlay">
+                            <button class="btn btn-primary" onclick="addToCart({id: 'FEAT-002', name: 'Maroon Palace Grace', price: 2699, image: '👗'})">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="featured-content">
+                        <h3>Maroon Palace Grace</h3>
+                        <p class="price">₹2,699</p>
+                    </div>
                 </div>
-                <div class="category-card">
-                    <div class="category-icon">💎</div>
-                    <h3>Designer Kurtis</h3>
-                    <p>Exclusive luxury collections</p>
-                </div>
-                <div class="category-card">
-                    <div class="category-icon">✨</div>
-                    <h3>Festive Wear</h3>
-                    <p>Elegant pieces for celebrations</p>
-                </div>
-                <div class="category-card">
-                    <div class="category-icon">💼</div>
-                    <h3>Office Wear</h3>
-                    <p>Professional and stylish</p>
-                </div>
-                <div class="category-card">
-                    <div class="category-icon">😊</div>
-                    <h3>Casual Wear</h3>
-                    <p>Relaxed and trendy styles</p>
+                
+                <div class="featured-card featured-small">
+                    <div class="featured-image">
+                        <img src="https://images.pexels.com/photos/1055691/pexels-photo-1055691.jpeg?w=300&h=400&fit=crop" alt="Gold Embellished">
+                        <div class="featured-overlay">
+                            <button class="btn btn-primary" onclick="addToCart({id: 'FEAT-003', name: 'Gold Embellished', price: 2299, image: '👗'})">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="featured-content">
+                        <h3>Gold Embellished</h3>
+                        <p class="price">₹2,299</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Collection Section -->
-    <section class="collection" id="collection">
+    <!-- Artisan Spotlight Section -->
+    <section class="artisan-spotlight">
         <div class="container">
-            <h2 class="section-title">Our Premium Collection</h2>
-            <div class="products-grid">
-                <!-- Product Card 1 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?w=250&h=300&fit=crop" alt="Royal Purple Kurti">
-                        <div class="product-overlay">
-                            <button class="btn-icon" title="Quick View">👁️</button>
+            <div class="artisan-content">
+                <div class="artisan-text">
+                    <h2 class="section-title">Master Craftsmen</h2>
+                    <p>Every piece in the VelorabyMegha collection is a testament to centuries of Indian artisanal tradition. Our master craftsmen combine ancient Mughal techniques with contemporary design sensibilities to create wearable art.</p>
+                    <p>Each kurti is hand-embroidered, hand-dyed, and carefully inspected to ensure it meets our exacting standards of luxury and excellence.</p>
+                    <button class="btn btn-primary">Learn Our Story</button>
+                </div>
+                <div class="artisan-visual">
+                    <div class="artisan-image">
+                        <img src="https://images.pexels.com/photos/3622614/pexels-photo-3622614.jpeg?w=500&h=600&fit=crop" alt="Artisan Craftsmanship">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Collection Grid -->
+    <section class="premium-collection" id="collection">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Complete Collection</h2>
+                <p class="section-subtitle">Discover our full range of palace-inspired designer wear</p>
+            </div>
+            
+            <div class="collection-filters">
+                <button class="filter-btn active" data-filter="all">All Pieces</button>
+                <button class="filter-btn" data-filter="royal">Royal Collection</button>
+                <button class="filter-btn" data-filter="silk">Premium Silk</button>
+                <button class="filter-btn" data-filter="festive">Festive</button>
+            </div>
+            
+            <div class="luxury-grid">
+                <!-- Product Cards with Enhanced Styling -->
+                <div class="luxury-product-card" data-category="royal">
+                    <div class="product-image-wrapper">
+                        <img src="https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?w=300&h=400&fit=crop" alt="Royal Silk Majesty">
+                        <div class="product-badge">New</div>
+                        <div class="product-overlay-luxury">
+                            <button class="btn-luxury-view" title="Quick View">👁️ View</button>
+                            <button class="btn-luxury-heart" title="Wishlist">♡</button>
                         </div>
                     </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Royal Purple Kurti</h3>
-                        <div class="product-rating">
+                    <div class="luxury-product-info">
+                        <h3 class="product-title">Royal Silk Majesty</h3>
+                        <div class="product-rating-luxury">
                             <span class="stars">⭐⭐⭐⭐⭐</span>
-                            <span class="rating-count">(128)</span>
+                            <span class="rating-text">(156)</span>
                         </div>
-                        <p class="product-price">₹1,299</p>
-                        <button class="btn btn-add-cart">Add to Cart</button>
+                        <p class="product-price-luxury">₹2,899</p>
+                        <p class="product-description">Premium silk with gold zardozi embroidery</p>
+                        <button class="btn btn-primary" onclick="addToCart({id: 'HOME-001', name: 'Royal Silk Majesty', price: 2899, image: '👗'})" data-product-id="HOME-001">Add to Cart</button>
                     </div>
                 </div>
 
-                <!-- Product Card 2 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.pexels.com/photos/2220316/pexels-photo-2220316.jpeg?w=250&h=300&fit=crop" alt="Magenta Elegance">
-                        <div class="product-overlay">
-                            <button class="btn-icon" title="Quick View">👁️</button>
+                <div class="luxury-product-card" data-category="silk">
+                    <div class="product-image-wrapper">
+                        <img src="https://images.pexels.com/photos/3622608/pexels-photo-3622608.jpeg?w=300&h=400&fit=crop" alt="Sapphire Elegance">
+                        <div class="product-badge">Bestseller</div>
+                        <div class="product-overlay-luxury">
+                            <button class="btn-luxury-view" title="Quick View">👁️ View</button>
+                            <button class="btn-luxury-heart" title="Wishlist">♡</button>
                         </div>
                     </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Magenta Elegance</h3>
-                        <div class="product-rating">
+                    <div class="luxury-product-info">
+                        <h3 class="product-title">Sapphire Elegance</h3>
+                        <div class="product-rating-luxury">
                             <span class="stars">⭐⭐⭐⭐⭐</span>
-                            <span class="rating-count">(95)</span>
+                            <span class="rating-text">(112)</span>
                         </div>
-                        <p class="product-price">₹1,499</p>
-                        <button class="btn btn-add-cart">Add to Cart</button>
+                        <p class="product-price-luxury">₹2,599</p>
+                        <p class="product-description">Royal blue silk with pearl embellishments</p>
+                        <button class="btn btn-primary" onclick="addToCart({id: 'HOME-002', name: 'Sapphire Elegance', price: 2599, image: '👗'})" data-product-id="HOME-002">Add to Cart</button>
                     </div>
                 </div>
 
-                <!-- Product Card 3 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.pexels.com/photos/1055691/pexels-photo-1055691.jpeg?w=250&h=300&fit=crop" alt="Lavender Dreams">
-                        <div class="product-overlay">
-                            <button class="btn-icon" title="Quick View">👁️</button>
+                <div class="luxury-product-card" data-category="royal">
+                    <div class="product-image-wrapper">
+                        <img src="https://images.pexels.com/photos/1926770/pexels-photo-1926770.jpeg?w=300&h=400&fit=crop" alt="Antique Gold Crown">
+                        <div class="product-badge">Limited</div>
+                        <div class="product-overlay-luxury">
+                            <button class="btn-luxury-view" title="Quick View">👁️ View</button>
+                            <button class="btn-luxury-heart" title="Wishlist">♡</button>
                         </div>
                     </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Lavender Dreams</h3>
-                        <div class="product-rating">
+                    <div class="luxury-product-info">
+                        <h3 class="product-title">Antique Gold Crown</h3>
+                        <div class="product-rating-luxury">
                             <span class="stars">⭐⭐⭐⭐</span>
-                            <span class="rating-count">(87)</span>
+                            <span class="rating-text">(78)</span>
                         </div>
-                        <p class="product-price">₹1,199</p>
-                        <button class="btn btn-add-cart">Add to Cart</button>
+                        <p class="product-price-luxury">₹2,799</p>
+                        <p class="product-description">Cream silk with antique gold zari work</p>
+                        <button class="btn btn-primary" onclick="addToCart({id: 'HOME-003', name: 'Antique Gold Crown', price: 2799, image: '👗'})" data-product-id="HOME-003">Add to Cart</button>
                     </div>
                 </div>
 
-                <!-- Product Card 4 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?w=250&h=300&fit=crop" alt="Hot Pink Chic">
-                        <div class="product-overlay">
-                            <button class="btn-icon" title="Quick View">👁️</button>
+                <div class="luxury-product-card" data-category="festive">
+                    <div class="product-image-wrapper">
+                        <img src="https://images.pexels.com/photos/2552140/pexels-photo-2552140.jpeg?w=300&h=400&fit=crop" alt="Floral Diamond">
+                        <div class="product-overlay-luxury">
+                            <button class="btn-luxury-view" title="Quick View">👁️ View</button>
+                            <button class="btn-luxury-heart" title="Wishlist">♡</button>
                         </div>
                     </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Hot Pink Chic</h3>
-                        <div class="product-rating">
+                    <div class="luxury-product-info">
+                        <h3 class="product-title">Floral Diamond</h3>
+                        <div class="product-rating-luxury">
                             <span class="stars">⭐⭐⭐⭐⭐</span>
-                            <span class="rating-count">(156)</span>
+                            <span class="rating-text">(145)</span>
                         </div>
-                        <p class="product-price">₹1,599</p>
-                        <button class="btn btn-add-cart">Add to Cart</button>
+                        <p class="product-price-luxury">₹2,899</p>
+                        <p class="product-description">Ivory silk with floral embroidery</p>
+                        <button class="btn btn-primary" onclick="addToCart({id: 'HOME-004', name: 'Floral Diamond', price: 2899, image: '👗'})" data-product-id="HOME-004">Add to Cart</button>
                     </div>
                 </div>
 
-                <!-- Product Card 5 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.pexels.com/photos/3622614/pexels-photo-3622614.jpeg?w=250&h=300&fit=crop" alt="Deep Purple Grace">
-                        <div class="product-overlay">
-                            <button class="btn-icon" title="Quick View">👁️</button>
+                <div class="luxury-product-card" data-category="royal">
+                    <div class="product-image-wrapper">
+                        <img src="https://images.pexels.com/photos/1536622/pexels-photo-1536622.jpeg?w=300&h=400&fit=crop" alt="Crimson Dynasty">
+                        <div class="product-overlay-luxury">
+                            <button class="btn-luxury-view" title="Quick View">👁️ View</button>
+                            <button class="btn-luxury-heart" title="Wishlist">♡</button>
                         </div>
                     </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Deep Purple Grace</h3>
-                        <div class="product-rating">
+                    <div class="luxury-product-info">
+                        <h3 class="product-title">Crimson Dynasty</h3>
+                        <div class="product-rating-luxury">
                             <span class="stars">⭐⭐⭐⭐⭐</span>
-                            <span class="rating-count">(112)</span>
+                            <span class="rating-text">(167)</span>
                         </div>
-                        <p class="product-price">₹1,699</p>
-                        <button class="btn btn-add-cart">Add to Cart</button>
+                        <p class="product-price-luxury">₹2,549</p>
+                        <p class="product-description">Deep maroon with intricate threadwork</p>
+                        <button class="btn btn-primary" onclick="addToCart({id: 'HOME-005', name: 'Crimson Dynasty', price: 2549, image: '👗'})" data-product-id="HOME-005">Add to Cart</button>
                     </div>
                 </div>
 
-                <!-- Product Card 6 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.pexels.com/photos/2220294/pexels-photo-2220294.jpeg?w=250&h=300&fit=crop" alt="Golden Elegance">
-                        <div class="product-overlay">
-                            <button class="btn-icon" title="Quick View">👁️</button>
+                <div class="luxury-product-card" data-category="silk">
+                    <div class="product-image-wrapper">
+                        <img src="https://images.pexels.com/photos/2552130/pexels-photo-2552130.jpeg?w=300&h=400&fit=crop" alt="Ivory Heritage">
+                        <div class="product-overlay-luxury">
+                            <button class="btn-luxury-view" title="Quick View">👁️ View</button>
+                            <button class="btn-luxury-heart" title="Wishlist">♡</button>
                         </div>
                     </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Golden Elegance</h3>
-                        <div class="product-rating">
+                    <div class="luxury-product-info">
+                        <h3 class="product-title">Ivory Heritage</h3>
+                        <div class="product-rating-luxury">
                             <span class="stars">⭐⭐⭐⭐</span>
-                            <span class="rating-count">(78)</span>
+                            <span class="rating-text">(91)</span>
                         </div>
-                        <p class="product-price">₹1,899</p>
-                        <button class="btn btn-add-cart">Add to Cart</button>
+                        <p class="product-price-luxury">₹2,099</p>
+                        <p class="product-description">Ivory silk with delicate pearl work</p>
+                        <button class="btn btn-primary" onclick="addToCart({id: 'HOME-006', name: 'Ivory Heritage', price: 2099, image: '👗'})" data-product-id="HOME-006">Add to Cart</button>
                     </div>
                 </div>
 
-                <!-- Product Card 7 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.pexels.com/photos/1926770/pexels-photo-1926770.jpeg?w=250&h=300&fit=crop" alt="Pink Blossom">
-                        <div class="product-overlay">
-                            <button class="btn-icon" title="Quick View">👁️</button>
+                <div class="luxury-product-card" data-category="festive">
+                    <div class="product-image-wrapper">
+                        <img src="https://images.pexels.com/photos/2220320/pexels-photo-2220320.jpeg?w=300&h=400&fit=crop" alt="Imperial Splendor">
+                        <div class="product-badge">Featured</div>
+                        <div class="product-overlay-luxury">
+                            <button class="btn-luxury-view" title="Quick View">👁️ View</button>
+                            <button class="btn-luxury-heart" title="Wishlist">♡</button>
                         </div>
                     </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Pink Blossom</h3>
-                        <div class="product-rating">
+                    <div class="luxury-product-info">
+                        <h3 class="product-title">Imperial Splendor</h3>
+                        <div class="product-rating-luxury">
                             <span class="stars">⭐⭐⭐⭐⭐</span>
-                            <span class="rating-count">(134)</span>
+                            <span class="rating-text">(189)</span>
                         </div>
-                        <p class="product-price">₹1,349</p>
-                        <button class="btn btn-add-cart">Add to Cart</button>
+                        <p class="product-price-luxury">₹2,749</p>
+                        <p class="product-description">Maroon silk with gold brocade</p>
+                        <button class="btn btn-primary" onclick="addToCart({id: 'HOME-007', name: 'Imperial Splendor', price: 2749, image: '👗'})" data-product-id="HOME-007">Add to Cart</button>
                     </div>
                 </div>
 
-                <!-- Product Card 8 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.pexels.com/photos/2552130/pexels-photo-2552130.jpeg?w=250&h=300&fit=crop" alt="Lavender Comfort">
-                        <div class="product-overlay">
-                            <button class="btn-icon" title="Quick View">👁️</button>
+                <div class="luxury-product-card" data-category="royal">
+                    <div class="product-image-wrapper">
+                        <img src="https://images.pexels.com/photos/2220294/pexels-photo-2220294.jpeg?w=300&h=400&fit=crop" alt="Velvet Blossom">
+                        <div class="product-overlay-luxury">
+                            <button class="btn-luxury-view" title="Quick View">👁️ View</button>
+                            <button class="btn-luxury-heart" title="Wishlist">♡</button>
                         </div>
                     </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Lavender Comfort</h3>
-                        <div class="product-rating">
-                            <span class="stars">⭐⭐⭐⭐</span>
-                            <span class="rating-count">(91)</span>
-                        </div>
-                        <p class="product-price">₹1,099</p>
-                        <button class="btn btn-add-cart">Add to Cart</button>
-                    </div>
-                </div>
-
-                <!-- Product Card 9 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.pexels.com/photos/3622608/pexels-photo-3622608.jpeg?w=250&h=300&fit=crop" alt="Hot Pink Fusion">
-                        <div class="product-overlay">
-                            <button class="btn-icon" title="Quick View">👁️</button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Hot Pink Fusion</h3>
-                        <div class="product-rating">
+                    <div class="luxury-product-info">
+                        <h3 class="product-title">Velvet Blossom</h3>
+                        <div class="product-rating-luxury">
                             <span class="stars">⭐⭐⭐⭐⭐</span>
-                            <span class="rating-count">(167)</span>
+                            <span class="rating-text">(134)</span>
                         </div>
-                        <p class="product-price">₹1,449</p>
-                        <button class="btn btn-add-cart">Add to Cart</button>
+                        <p class="product-price-luxury">₹2,449</p>
+                        <p class="product-description">Emerald velvet with champagne embroidery</p>
+                        <button class="btn btn-primary" onclick="addToCart({id: 'HOME-008', name: 'Velvet Blossom', price: 2449, image: '👗'})" data-product-id="HOME-008">Add to Cart</button>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <!-- Product Card 10 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.pexels.com/photos/1536622/pexels-photo-1536622.jpeg?w=250&h=300&fit=crop" alt="Purple Sophistication">
-                        <div class="product-overlay">
-                            <button class="btn-icon" title="Quick View">👁️</button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Purple Sophistication</h3>
-                        <div class="product-rating">
-                            <span class="stars">⭐⭐⭐⭐</span>
-                            <span class="rating-count">(103)</span>
-                        </div>
-                        <p class="product-price">₹1,549</p>
-                        <button class="btn btn-add-cart">Add to Cart</button>
-                    </div>
+    <!-- Heritage Section -->
+    <section class="heritage" id="artisan">
+        <div class="container">
+            <div class="heritage-content">
+                <div class="heritage-text">
+                    <h2 class="section-title">Artisan Heritage</h2>
+                    <p>VelorabyMegha represents the pinnacle of traditional Indian craftsmanship. Each collection celebrates the opulence and artistry of Mughal court attire, reimagined for the modern woman.</p>
+                    <ul class="heritage-features">
+                        <li>🎨 Hand-Embroidered Masterpieces</li>
+                        <li>👑 Mughal Palace-Inspired Designs</li>
+                        <li>✨ Premium Silk & Brocade Fabrics</li>
+                        <li>💎 Authentic Zardozi & Zari Work</li>
+                        <li>🏆 Limited Edition Collections</li>
+                        <li>🌟 Celebrity Favorite Brand</li>
+                    </ul>
                 </div>
-
-                <!-- Product Card 11 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.pexels.com/photos/2552140/pexels-photo-2552140.jpeg?w=250&h=300&fit=crop" alt="Gold Accent Luxury">
-                        <div class="product-overlay">
-                            <button class="btn-icon" title="Quick View">👁️</button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Gold Accent Luxury</h3>
-                        <div class="product-rating">
-                            <span class="stars">⭐⭐⭐⭐⭐</span>
-                            <span class="rating-count">(145)</span>
-                        </div>
-                        <p class="product-price">₹1,799</p>
-                        <button class="btn btn-add-cart">Add to Cart</button>
-                    </div>
-                </div>
-
-                <!-- Product Card 12 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.pexels.com/photos/2220320/pexels-photo-2220320.jpeg?w=250&h=300&fit=crop" alt="Magenta Splendor">
-                        <div class="product-overlay">
-                            <button class="btn-icon" title="Quick View">👁️</button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Magenta Splendor</h3>
-                        <div class="product-rating">
-                            <span class="stars">⭐⭐⭐⭐⭐</span>
-                            <span class="rating-count">(189)</span>
-                        </div>
-                        <p class="product-price">₹1,649</p>
-                        <button class="btn btn-add-cart">Add to Cart</button>
+                <div class="heritage-visual">
+                    <div class="heritage-image-container">
+                        <img src="https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?w=500&h=600&fit=crop" alt="Heritage Collection">
+                        <div class="heritage-badge">Since 2020</div>
                     </div>
                 </div>
             </div>
@@ -334,18 +366,26 @@
     <section class="about" id="about">
         <div class="container">
             <h2 class="section-title">About VelorabyMegha</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Welcome to VelorabyMegha, your ultimate destination for elegant and luxurious kurtis. We are dedicated to bringing premium quality traditional wear with a modern twist to every woman who values style and comfort.</p>
-                    <p>Our carefully curated collection features the finest fabrics, exquisite designs, and impeccable craftsmanship. Each kurti is a testament to our commitment to excellence and your unique style.</p>
-                    <ul class="about-features">
-                        <li>✨ Premium Quality Fabrics</li>
-                        <li>👗 Exclusive Designs</li>
-                        <li>💎 Luxury Collection</li>
-                        <li>🚚 Fast & Free Shipping</li>
-                        <li>💯 100% Authentic</li>
-                        <li>🔄 Easy Returns</li>
-                    </ul>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon">👑</div>
+                    <h3>Royal Legacy</h3>
+                    <p>Inspired by the majesty of Mughal emperors and the elegance of palace traditions, our designs capture centuries of artistic heritage.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">🎨</div>
+                    <h3>Artisan Excellence</h3>
+                    <p>Every piece is meticulously crafted by master artisans using traditional techniques passed down through generations.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">💎</div>
+                    <h3>Premium Quality</h3>
+                    <p>We source the finest silks, brocades, and embellishments from across India to create our signature luxury collection.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">✨</div>
+                    <h3>Sustainable Fashion</h3>
+                    <p>Committed to ethical production and environmental responsibility without compromising on luxury and quality.</p>
                 </div>
             </div>
         </div>
@@ -354,25 +394,26 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <span class="contact-icon">📧</span>
-                        <div>
-                            <h3>Email</h3>
-                            <p><a href="mailto:VelorabyMegha@gmail.com">VelorabyMegha@gmail.com</a></p>
-                        </div>
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-wrapper">
+                <div class="contact-info-luxury">
+                    <div class="contact-item-luxury">
+                        <span class="contact-icon-luxury">📧</span>
+                        <h3>Email</h3>
+                        <p><a href="mailto:VelorabyMegha@gmail.com">VelorabyMegha@gmail.com</a></p>
                     </div>
-                    <div class="contact-item">
-                        <span class="contact-icon">📞</span>
-                        <div>
-                            <h3>Phone</h3>
-                            <p><a href="tel:+917401393834">+91 7401393834</a></p>
-                        </div>
+                    <div class="contact-item-luxury">
+                        <span class="contact-icon-luxury">📞</span>
+                        <h3>Phone</h3>
+                        <p><a href="tel:+917401393834">+91 7401393834</a></p>
+                    </div>
+                    <div class="contact-item-luxury">
+                        <span class="contact-icon-luxury">📍</span>
+                        <h3>Location</h3>
+                        <p>Mumbai, India</p>
                     </div>
                 </div>
-                <form class="contact-form" id="contactForm">
+                <form class="contact-form-luxury" id="contactForm">
                     <input type="text" placeholder="Your Name" required>
                     <input type="email" placeholder="Your Email" required>
                     <textarea placeholder="Your Message" rows="5" required></textarea>
@@ -383,14 +424,33 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer-luxury">
         <div class="container">
-            <p>&copy; 2024 VelorabyMegha. All rights reserved. Crafted with elegance and passion.</p>
-            <div class="footer-links">
-                <a href="#home">Home</a>
-                <a href="#collection">Collection</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>VelorabyMegha</h4>
+                    <p>Luxury Mughal-Inspired Couture Fashion</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#collection">Collection</a></li>
+                        <li><a href="#artisan">Artisan</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">f</a>
+                        <a href="#" class="social-icon">I</a>
+                        <a href="#" class="social-icon">P</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 VelorabyMegha. All rights reserved. Crafted with elegance and heritage.</p>
             </div>
         </div>
     </footer>
@@ -398,9 +458,24 @@
     <!-- Loading Animation -->
     <div class="loading-screen" id="loadingScreen">
         <div class="loading-spinner"></div>
-        <p>Loading...</p>
+        <p>Loading Elegance...</p>
     </div>
 
+    <script src="shop/js/cart.js"></script>
     <script src="script.js"></script>
+    <script>
+        // Initialize cart from localStorage on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!window.cart) {
+                const savedCart = localStorage.getItem('cart');
+                window.cart = savedCart ? JSON.parse(savedCart) : [];
+            }
+        });
+        
+        // Redirect to cart when user clicks on Cart link
+        function goToCart() {
+            window.location.href = 'shop/cart.html';
+        }
+    </script>
 </body>
 </html>

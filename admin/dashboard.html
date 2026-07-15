@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - VelorabyMegha</title>
+    <link rel="stylesheet" href="../admin/admin.css">
+</head>
+<body class="admin-dashboard">
+    <!-- Admin Sidebar -->
+    <aside class="admin-sidebar">
+        <div class="admin-branding">
+            <h2>🏛️ Admin Panel</h2>
+        </div>
+
+        <nav class="admin-menu">
+            <a href="dashboard.html" class="admin-menu-item active" data-page="dashboard">
+                <span class="menu-icon">📊</span> Dashboard
+            </a>
+            <a href="products.html" class="admin-menu-item" data-page="products">
+                <span class="menu-icon">📦</span> Products
+            </a>
+            <a href="product-upload.html" class="admin-menu-item" data-page="product-upload">
+                <span class="menu-icon">➕</span> Add Product
+            </a>
+            <a href="orders.html" class="admin-menu-item" data-page="orders">
+                <span class="menu-icon">🛒</span> Orders
+            </a>
+            <a href="customers.html" class="admin-menu-item" data-page="customers">
+                <span class="menu-icon">👥</span> Customers
+            </a>
+            <a href="categories.html" class="admin-menu-item" data-page="categories">
+                <span class="menu-icon">🏷️</span> Categories
+            </a>
+            <a href="coupons.html" class="admin-menu-item" data-page="coupons">
+                <span class="menu-icon">🎟️</span> Coupons
+            </a>
+            <a href="gift-cards.html" class="admin-menu-item" data-page="gift-cards">
+                <span class="menu-icon">🎁</span> Gift Cards
+            </a>
+            <a href="reviews.html" class="admin-menu-item" data-page="reviews">
+                <span class="menu-icon">⭐</span> Reviews
+            </a>
+            <a href="banners.html" class="admin-menu-item" data-page="banners">
+                <span class="menu-icon">🖼️</span> Banners
+            </a>
+            <a href="reports.html" class="admin-menu-item" data-page="reports">
+                <span class="menu-icon">📈</span> Reports
+            </a>
+            <a href="../index.html" class="admin-menu-item danger" id="logoutBtn">
+                <span class="menu-icon">🚪</span> Logout
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Admin Header -->
+    <div class="admin-header">
+        <div class="admin-title">
+            <h1>Dashboard</h1>
+        </div>
+        <div class="admin-profile">
+            <span>Welcome, Admin</span>
+            <div class="profile-avatar">A</div>
+        </div>
+    </div>
+
+    <!-- Admin Main Content -->
+    <main class="admin-main">
+        <div class="admin-container">
+            <!-- Key Metrics -->
+            <section class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-icon">📦</div>
+                    <div class="metric-content">
+                        <h3>Total Products</h3>
+                        <p id="totalProducts" class="metric-value">0</p>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon">🛒</div>
+                    <div class="metric-content">
+                        <h3>Total Orders</h3>
+                        <p id="totalOrders" class="metric-value">0</p>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon">💰</div>
+                    <div class="metric-content">
+                        <h3>Revenue</h3>
+                        <p id="totalRevenue" class="metric-value">₹0</p>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon">👥</div>
+                    <div class="metric-content">
+                        <h3>Total Customers</h3>
+                        <p id="totalCustomers" class="metric-value">0</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recent Orders -->
+            <section class="dashboard-section">
+                <div class="section-header">
+                    <h2>Recent Orders</h2>
+                    <a href="orders.html" class="view-all-link">View All →</a>
+                </div>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recentOrdersTable">
+                        <tr>
+                            <td colspan="5" class="empty-state">No orders yet</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Recent Products -->
+            <section class="dashboard-section">
+                <div class="section-header">
+                    <h2>Recent Products</h2>
+                    <a href="products.html" class="view-all-link">View All →</a>
+                </div>
+                <div id="recentProducts" class="products-grid-admin">
+                    <div class="empty-state">No products added yet</div>
+                </div>
+            </section>
+
+            <!-- Sales Chart -->
+            <section class="dashboard-section">
+                <h2>Sales Overview</h2>
+                <div id="salesChart" class="chart-placeholder">
+                    <p>Chart will display sales data</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="../admin/admin.js"></script>
+</body>
+</html>

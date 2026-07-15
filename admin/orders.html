@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders Management - VelorabyMegha Admin</title>
+    <link rel="stylesheet" href="../admin/admin.css">
+</head>
+<body class="admin-dashboard">
+    <!-- Admin Sidebar -->
+    <aside class="admin-sidebar">
+        <div class="admin-branding">
+            <h2>🏛️ Admin Panel</h2>
+        </div>
+
+        <nav class="admin-menu">
+            <a href="dashboard.html" class="admin-menu-item" data-page="dashboard">
+                <span class="menu-icon">📊</span> Dashboard
+            </a>
+            <a href="products.html" class="admin-menu-item" data-page="products">
+                <span class="menu-icon">📦</span> Products
+            </a>
+            <a href="product-upload.html" class="admin-menu-item" data-page="product-upload">
+                <span class="menu-icon">➕</span> Add Product
+            </a>
+            <a href="orders.html" class="admin-menu-item active" data-page="orders">
+                <span class="menu-icon">🛒</span> Orders
+            </a>
+            <a href="customers.html" class="admin-menu-item" data-page="customers">
+                <span class="menu-icon">👥</span> Customers
+            </a>
+            <a href="../index.html" class="admin-menu-item danger" id="logoutBtn">
+                <span class="menu-icon">🚪</span> Logout
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Admin Header -->
+    <div class="admin-header">
+        <div class="admin-title">
+            <h1>Orders Management</h1>
+        </div>
+    </div>
+
+    <!-- Admin Main Content -->
+    <main class="admin-main">
+        <div class="admin-container">
+            <section class="dashboard-section">
+                <div class="section-header">
+                    <h2>All Orders</h2>
+                </div>
+
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Email</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ordersTableBody">
+                        <tr>
+                            <td colspan="7" class="empty-state">No orders yet</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Order Statistics -->
+            <section class="dashboard-section">
+                <h2>Order Statistics</h2>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon">📦</div>
+                        <div class="metric-content">
+                            <h3>Processing</h3>
+                            <p class="metric-value" id="processingCount">0</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">🚚</div>
+                        <div class="metric-content">
+                            <h3>Shipped</h3>
+                            <p class="metric-value" id="shippedCount">0</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">✅</div>
+                        <div class="metric-content">
+                            <h3>Delivered</h3>
+                            <p class="metric-value" id="deliveredCount">0</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">❌</div>
+                        <div class="metric-content">
+                            <h3>Cancelled</h3>
+                            <p class="metric-value" id="cancelledCount">0</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="../admin/admin.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            loadOrdersTable();
+            loadOrderStatistics();
+        });
+
+        function loadOrdersTable() {
+            const orders = JSON.parse(localStorage.getItem('orders')) || [];
+            const tbody = document.getElementById('ordersTableBody');
+
+            if (orders.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" class="empty-state">No orders yet</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = orders.reverse().map(order => `
+                <tr>
+                    <td><strong>${order.id}</strong></td>
+                    <td>${order.customer}</td>
+                    <td>${order.email}</td>
+                    <td>₹${order.total.toLocaleString('en-IN')}</td>
+                    <td><span class="status-badge ${order.status}">${order.status}</span></td>
+                    <td>${new Date(order.date).toLocaleDateString()}</td>
+                    <td>
+                        <button class="btn-view" onclick="viewOrder('${order.id}')">View</button>
+                        <button class="btn-update" onclick="updateOrderStatus('${order.id}')">Update</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function loadOrderStatistics() {
+            const orders = JSON.parse(localStorage.getItem('orders')) || [];
+            
+            const processingCount = orders.filter(o => o.status === 'processing').length;
+            const shippedCount = orders.filter(o => o.status === 'shipped').length;
+            const deliveredCount = orders.filter(o => o.status === 'delivered').length;
+            const cancelledCount = orders.filter(o => o.status === 'cancelled').length;
+            
+            document.getElementById('processingCount').textContent = processingCount;
+            document.getElementById('shippedCount').textContent = shippedCount;
+            document.getElementById('deliveredCount').textContent = deliveredCount;
+            document.getElementById('cancelledCount').textContent = cancelledCount;
+        }
+
+        function viewOrder(orderId) {
+            alert('View order details - ' + orderId);
+        }
+
+        function updateOrderStatus(orderId) {
+            const newStatus = prompt('Enter new status (processing/shipped/delivered/cancelled):');
+            if (newStatus) {
+                let orders = JSON.parse(localStorage.getItem('orders')) || [];
+                const order = orders.find(o => o.id === orderId);
+                if (order) {
+                    order.status = newStatus;
+                    localStorage.setItem('orders', JSON.stringify(orders));
+                    loadOrdersTable();
+                    loadOrderStatistics();
+                }
+            }
+        }
+    </script>
+</body>
+</html>

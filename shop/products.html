@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - VelorabyMegha</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../styles/shop.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">👑</span>
+                <span class="logo-text">VelorabyMegha</span>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="products.html" class="nav-link">Shop</a></li>
+                <li><a href="cart.html" class="nav-link">Cart (0)</a></li>
+                <li><a href="../auth/signin.html" class="nav-link">Account</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Luxury Collections</h1>
+        <p>Discover Our Exquisite Handcrafted Kurtis</p>
+    </div>
+
+    <!-- Shop Container -->
+    <div class="shop-container">
+        <!-- Sidebar Filters -->
+        <aside class="shop-sidebar">
+            <div class="filter-section">
+                <h3>Categories</h3>
+                <div class="filter-options">
+                    <label><input type="checkbox" name="category" value="royal"> Royal Collection</label>
+                    <label><input type="checkbox" name="category" value="premium"> Premium Silk</label>
+                    <label><input type="checkbox" name="category" value="festive"> Festive</label>
+                    <label><input type="checkbox" name="category" value="casual"> Casual Wear</label>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3>Price Range</h3>
+                <div class="price-range">
+                    <input type="range" min="0" max="50000" id="priceRange">
+                    <p>₹<span id="priceValue">50000</span></p>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3>Size</h3>
+                <div class="filter-options">
+                    <label><input type="checkbox" name="size" value="xs"> XS</label>
+                    <label><input type="checkbox" name="size" value="s"> S</label>
+                    <label><input type="checkbox" name="size" value="m"> M</label>
+                    <label><input type="checkbox" name="size" value="l"> L</label>
+                    <label><input type="checkbox" name="size" value="xl"> XL</label>
+                    <label><input type="checkbox" name="size" value="xxl"> XXL</label>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3>Color</h3>
+                <div class="color-options">
+                    <span class="color-box" style="background: #0d4a3d;" data-color="emerald"></span>
+                    <span class="color-box" style="background: #5a1628;" data-color="maroon"></span>
+                    <span class="color-box" style="background: #f4e4c1;" data-color="champagne"></span>
+                    <span class="color-box" style="background: #faf8f4;" data-color="ivory"></span>
+                    <span class="color-box" style="background: #001f3f;" data-color="sapphire"></span>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3>Fabric</h3>
+                <div class="filter-options">
+                    <label><input type="checkbox" name="fabric" value="silk"> Pure Silk</label>
+                    <label><input type="checkbox" name="fabric" value="cotton"> Cotton</label>
+                    <label><input type="checkbox" name="fabric" value="blend"> Silk Blend</label>
+                    <label><input type="checkbox" name="fabric" value="georgette"> Georgette</label>
+                </div>
+            </div>
+
+            <button id="resetFilters" class="btn btn-outline">Reset Filters</button>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="shop-main">
+            <!-- Sorting & View Options -->
+            <div class="shop-controls">
+                <div class="sort-control">
+                    <label>Sort By:</label>
+                    <select id="sortBy">
+                        <option value="featured">Featured</option>
+                        <option value="new">New Arrivals</option>
+                        <option value="bestseller">Best Sellers</option>
+                        <option value="low-high">Price: Low to High</option>
+                        <option value="high-low">Price: High to Low</option>
+                        <option value="rating">Rating</option>
+                    </select>
+                </div>
+                <div class="view-control">
+                    <button class="view-btn grid-view active" title="Grid View">⊞</button>
+                    <button class="view-btn list-view" title="List View">≡</button>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div id="productsGrid" class="products-grid">
+                <!-- Products will be loaded here -->
+                <div class="loading-spinner">
+                    <p>Loading products...</p>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div id="pagination" class="pagination"></div>
+        </div>
+    </div>
+
+    <script src="../js/products.js"></script>
+    <script src="../js/shop.js"></script>
+</body>
+</html>

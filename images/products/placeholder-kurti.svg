@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="400" viewBox="0 0 300 400">
+  <!-- Background -->
+  <rect width="300" height="400" fill="#f5f0e8"/>
+  
+  <!-- Dress silhouette -->
+  <g fill="none" stroke="#e8a87c" stroke-width="2">
+    <!-- Neckline -->
+    <circle cx="150" cy="60" r="25"/>
+    
+    <!-- Sleeves -->
+    <path d="M 125 80 L 100 100"/>
+    <path d="M 175 80 L 200 100"/>
+    
+    <!-- Main body -->
+    <path d="M 130 85 L 120 200 Q 120 250 150 280 Q 180 250 180 200 L 170 85"/>
+    
+    <!-- Waist detail -->
+    <line x1="120" y1="130" x2="180" y2="130" stroke="#e8a87c" stroke-width="1.5"/>
+  </g>
+  
+  <!-- Decorative pattern -->
+  <circle cx="150" cy="150" r="3" fill="#d4a574" opacity="0.6"/>
+  <circle cx="140" cy="160" r="3" fill="#d4a574" opacity="0.6"/>
+  <circle cx="160" cy="160" r="3" fill="#d4a574" opacity="0.6"/>
+  <circle cx="150" cy="180" r="3" fill="#d4a574" opacity="0.6"/>
+  <circle cx="140" cy="190" r="3" fill="#d4a574" opacity="0.6"/>
+  <circle cx="160" cy="190" r="3" fill="#d4a574" opacity="0.6"/>
+</svg>

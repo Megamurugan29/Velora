@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - VelorabyMegha</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../styles/shop.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">👑</span>
+                <span class="logo-text">VelorabyMegha</span>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="products.html" class="nav-link">Shop</a></li>
+                <li><a href="cart.html" class="nav-link">Cart</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Shopping Cart</h1>
+        <p>Review and modify your items</p>
+    </div>
+
+    <!-- Cart Container -->
+    <div class="cart-container">
+        <div class="cart-wrapper">
+            <!-- Cart Items -->
+            <div class="cart-items-section">
+                <div id="emptyCartMessage" class="empty-cart">
+                    <div class="empty-cart-illustration">
+                        🛒
+                    </div>
+                    <h2>Your cart is empty</h2>
+                    <p>Continue shopping to discover our latest collections</p>
+                    <a href="products.html" class="btn btn-primary">Continue Shopping</a>
+                </div>
+
+                <div id="cartProductsDisplay" style="display: none;">
+                    <div class="cart-products-grid" id="cartProductsGrid">
+                        <!-- Premium product cards will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cart Summary -->
+            <aside class="cart-summary" id="cartSummaryPanel" style="display: none;">
+                <div class="summary-section">
+                    <h3>Order Summary</h3>
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span id="subtotal">₹0</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Discount</span>
+                        <span id="discount">-₹0</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping</span>
+                        <span id="shipping">FREE</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Tax (18%)</span>
+                        <span id="tax">₹0</span>
+                    </div>
+                    <div class="summary-divider"></div>
+                    <div class="summary-total">
+                        <span>Total</span>
+                        <span id="total">₹0</span>
+                    </div>
+                </div>
+
+                <div class="coupon-section">
+                    <h4>Apply Coupon Code</h4>
+                    <div class="coupon-input">
+                        <input type="text" id="couponCode" placeholder="Enter coupon code">
+                        <button id="applyCouponBtn" class="btn btn-outline">Apply</button>
+                    </div>
+                    <div id="couponMessage" style="display: none;"></div>
+                </div>
+
+                <div class="gift-card-section">
+                    <h4>Gift Card</h4>
+                    <div class="gift-card-input">
+                        <input type="text" id="giftCard" placeholder="Enter gift card number">
+                        <button id="applyGiftCardBtn" class="btn btn-outline">Apply</button>
+                    </div>
+                </div>
+
+                <button id="checkoutBtn" class="btn btn-primary checkout-btn">Proceed to Checkout</button>
+                <button id="clearCartBtn" class="btn btn-danger clear-cart-btn">Clear Cart</button>
+                <a href="products.html" class="continue-shopping-link">Continue Shopping</a>
+
+                <div class="security-badge">
+                    <span>🔒</span> Secure checkout powered by industry-leading security
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-luxury">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>VelorabyMegha</h4>
+                    <p>Luxury Mughal-Inspired Couture Fashion</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="products.html">Shop</a></li>
+                        <li><a href="../auth/signin.html">Account</a></li>
+                        <li><a href="../index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">f</a>
+                        <a href="#" class="social-icon">I</a>
+                        <a href="#" class="social-icon">P</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 VelorabyMegha. All rights reserved. Crafted with elegance and heritage.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script src="../js/cart.js"></script>
+</body>
+</html>

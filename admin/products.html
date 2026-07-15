@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products Management - VelorabyMegha Admin</title>
+    <link rel="stylesheet" href="../admin/admin.css">
+</head>
+<body class="admin-dashboard">
+    <!-- Admin Sidebar -->
+    <aside class="admin-sidebar">
+        <div class="admin-branding">
+            <h2>🏛️ Admin Panel</h2>
+        </div>
+
+        <nav class="admin-menu">
+            <a href="dashboard.html" class="admin-menu-item" data-page="dashboard">
+                <span class="menu-icon">📊</span> Dashboard
+            </a>
+            <a href="products.html" class="admin-menu-item active" data-page="products">
+                <span class="menu-icon">📦</span> Products
+            </a>
+            <a href="product-upload.html" class="admin-menu-item" data-page="product-upload">
+                <span class="menu-icon">➕</span> Add Product
+            </a>
+            <a href="orders.html" class="admin-menu-item" data-page="orders">
+                <span class="menu-icon">🛒</span> Orders
+            </a>
+            <a href="customers.html" class="admin-menu-item" data-page="customers">
+                <span class="menu-icon">👥</span> Customers
+            </a>
+            <a href="../index.html" class="admin-menu-item danger" id="logoutBtn">
+                <span class="menu-icon">🚪</span> Logout
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Admin Header -->
+    <div class="admin-header">
+        <div class="admin-title">
+            <h1>Products Management</h1>
+        </div>
+    </div>
+
+    <!-- Admin Main Content -->
+    <main class="admin-main">
+        <div class="admin-container">
+            <section class="dashboard-section">
+                <div class="section-header">
+                    <h2>All Products</h2>
+                    <a href="product-upload.html" class="btn btn-primary">+ Add New Product</a>
+                </div>
+
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>SKU</th>
+                            <th>Product Name</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productsTableBody">
+                        <tr>
+                            <td colspan="7" class="empty-state">No products added yet. <a href="product-upload.html">Add one now</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </main>
+
+    <script src="../admin/admin.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProductsTable();
+        });
+
+        function loadProductsTable() {
+            const products = JSON.parse(localStorage.getItem('products')) || [];
+            const tbody = document.getElementById('productsTableBody');
+
+            if (products.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" class="empty-state">No products added yet. <a href="product-upload.html">Add one now</a></td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = products.map(product => `
+                <tr>
+                    <td>${product.sku || 'N/A'}</td>
+                    <td>${product.name}</td>
+                    <td>${product.category}</td>
+                    <td>₹${product.price}</td>
+                    <td>${product.stock || 0}</td>
+                    <td>
+                        <span class="status-badge ${product.isPublished ? 'published' : 'draft'}">
+                            ${product.isPublished ? 'Published' : 'Draft'}
+                        </span>
+                    </td>
+                    <td>
+                        <button class="btn-edit" onclick="editProduct('${product.id}')">Edit</button>
+                        <button class="btn-delete" onclick="deleteProduct('${product.id}')">Delete</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function editProduct(productId) {
+            // In a full app, navigate to edit form
+            alert('Edit functionality - Navigate to product edit page');
+        }
+
+        function deleteProduct(productId) {
+            if (confirm('Are you sure you want to delete this product?')) {
+                let products = JSON.parse(localStorage.getItem('products')) || [];
+                products = products.filter(p => p.id !== productId);
+                localStorage.setItem('products', JSON.stringify(products));
+                loadProductsTable();
+            }
+        }
+    </script>
+</body>
+</html>

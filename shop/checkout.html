@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - VelorabyMegha</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../styles/checkout.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">👑</span>
+                <span class="logo-text">VelorabyMegha</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Checkout Steps -->
+    <div class="checkout-container">
+        <div class="checkout-progress">
+            <div class="progress-step active">
+                <span class="step-number">1</span>
+                <span class="step-label">Shipping</span>
+            </div>
+            <div class="progress-line"></div>
+            <div class="progress-step">
+                <span class="step-number">2</span>
+                <span class="step-label">Payment</span>
+            </div>
+            <div class="progress-line"></div>
+            <div class="progress-step">
+                <span class="step-number">3</span>
+                <span class="step-label">Confirmation</span>
+            </div>
+        </div>
+
+        <div class="checkout-wrapper">
+            <!-- Shipping Step -->
+            <div id="shippingStep" class="checkout-section active">
+                <h2>Shipping Information</h2>
+                
+                <div class="address-form">
+                    <h3>Billing Address</h3>
+                    <form id="billingForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>First Name *</label>
+                                <input type="text" id="billFirstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name *</label>
+                                <input type="text" id="billLastName" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Email *</label>
+                            <input type="email" id="billEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number *</label>
+                            <input type="tel" id="billPhone" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Address *</label>
+                            <input type="text" id="billAddress" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>City *</label>
+                                <input type="text" id="billCity" required>
+                            </div>
+                            <div class="form-group">
+                                <label>State *</label>
+                                <input type="text" id="billState" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Postal Code *</label>
+                                <input type="text" id="billPostal" required>
+                            </div>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="sameAsShipping">
+                            Shipping address same as billing
+                        </label>
+                    </form>
+
+                    <h3>Shipping Address</h3>
+                    <form id="shippingForm" style="display: none;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>First Name *</label>
+                                <input type="text" id="shipFirstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name *</label>
+                                <input type="text" id="shipLastName" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Address *</label>
+                            <input type="text" id="shipAddress" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>City *</label>
+                                <input type="text" id="shipCity" required>
+                            </div>
+                            <div class="form-group">
+                                <label>State *</label>
+                                <input type="text" id="shipState" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Postal Code *</label>
+                                <input type="text" id="shipPostal" required>
+                            </div>
+                        </div>
+                    </form>
+
+                    <h3>Shipping Method</h3>
+                    <div class="shipping-methods">
+                        <label class="shipping-option">
+                            <input type="radio" name="shipping" value="standard" checked>
+                            <div class="shipping-info">
+                                <span>Standard Shipping (5-7 days)</span>
+                                <span class="shipping-cost">FREE</span>
+                            </div>
+                        </label>
+                        <label class="shipping-option">
+                            <input type="radio" name="shipping" value="express">
+                            <div class="shipping-info">
+                                <span>Express Shipping (2-3 days)</span>
+                                <span class="shipping-cost">₹500</span>
+                            </div>
+                        </label>
+                        <label class="shipping-option">
+                            <input type="radio" name="shipping" value="overnight">
+                            <div class="shipping-info">
+                                <span>Overnight Shipping (Next Day)</span>
+                                <span class="shipping-cost">₹1000</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <button id="continueToPaymentBtn" class="btn btn-primary">Continue to Payment</button>
+            </div>
+
+            <!-- Payment Step -->
+            <div id="paymentStep" class="checkout-section">
+                <h2>Payment Information</h2>
+
+                <div class="payment-methods">
+                    <h3>Select Payment Method</h3>
+                    
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="card" checked>
+                        <span class="payment-label">💳 Credit/Debit Card</span>
+                    </label>
+
+                    <div id="cardForm" class="payment-form">
+                        <div class="form-group">
+                            <label>Cardholder Name *</label>
+                            <input type="text" id="cardName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Card Number *</label>
+                            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Expiry Date *</label>
+                                <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5" required>
+                            </div>
+                            <div class="form-group">
+                                <label>CVV *</label>
+                                <input type="text" id="cardCVV" placeholder="123" maxlength="3" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="upi">
+                        <span class="payment-label">📱 UPI (Google Pay, PhonePe, Paytm)</span>
+                    </label>
+
+                    <div id="upiForm" class="payment-form" style="display: none;">
+                        <div class="form-group">
+                            <label>UPI ID *</label>
+                            <input type="text" id="upiId" placeholder="yourname@upi" required>
+                        </div>
+                    </div>
+
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="netbanking">
+                        <span class="payment-label">🏦 Net Banking</span>
+                    </label>
+
+                    <div id="netbankingForm" class="payment-form" style="display: none;">
+                        <div class="form-group">
+                            <label>Select Bank *</label>
+                            <select id="bankSelect" required>
+                                <option>Choose your bank...</option>
+                                <option>HDFC Bank</option>
+                                <option>ICICI Bank</option>
+                                <option>Axis Bank</option>
+                                <option>SBI Bank</option>
+                                <option>Other Banks</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="wallet">
+                        <span class="payment-label">💰 Digital Wallet</span>
+                    </label>
+
+                    <div id="walletForm" class="payment-form" style="display: none;">
+                        <div class="form-group">
+                            <label>Select Wallet *</label>
+                            <select id="walletSelect" required>
+                                <option>Choose wallet...</option>
+                                <option>Amazon Pay</option>
+                                <option>Google Pay</option>
+                                <option>Paytm Wallet</option>
+                                <option>PhonePe</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="save-card-option">
+                    <label>
+                        <input type="checkbox" id="savePaymentMethod">
+                        Save this payment method for future purchases
+                    </label>
+                </div>
+
+                <div class="form-row">
+                    <button id="backToShippingBtn" class="btn btn-outline">Back</button>
+                    <button id="processPaymentBtn" class="btn btn-primary">Process Payment</button>
+                </div>
+            </div>
+
+            <!-- Confirmation Step -->
+            <div id="confirmationStep" class="checkout-section">
+                <div class="order-confirmation">
+                    <div class="success-icon">✓</div>
+                    <h2>Order Confirmed!</h2>
+                    <p>Thank you for your purchase</p>
+                    <p class="order-number">Order ID: <span id="orderId">#12345</span></p>
+                    <p class="confirmation-message">We've sent you an email with your order details. Track your order status anytime from your profile.</p>
+                    <a href="../auth/profile.html" class="btn btn-primary">View My Orders</a>
+                    <a href="products.html" class="btn btn-outline">Continue Shopping</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Order Summary Sidebar -->
+        <aside class="checkout-summary">
+            <h3>Order Summary</h3>
+            <div id="checkoutOrderItems"></div>
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="checkoutSubtotal">₹0</span>
+            </div>
+            <div class="summary-row">
+                <span>Shipping</span>
+                <span id="checkoutShipping">FREE</span>
+            </div>
+            <div class="summary-row">
+                <span>Tax</span>
+                <span id="checkoutTax">₹0</span>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-total">
+                <span>Total</span>
+                <span id="checkoutTotal">₹0</span>
+            </div>
+        </aside>
+    </div>
+
+    <script src="../js/checkout.js"></script>
+</body>
+</html>

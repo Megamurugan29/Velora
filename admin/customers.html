@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers Management - VelorabyMegha Admin</title>
+    <link rel="stylesheet" href="../admin/admin.css">
+</head>
+<body class="admin-dashboard">
+    <!-- Admin Sidebar -->
+    <aside class="admin-sidebar">
+        <div class="admin-branding">
+            <h2>🏛️ Admin Panel</h2>
+        </div>
+
+        <nav class="admin-menu">
+            <a href="dashboard.html" class="admin-menu-item" data-page="dashboard">
+                <span class="menu-icon">📊</span> Dashboard
+            </a>
+            <a href="products.html" class="admin-menu-item" data-page="products">
+                <span class="menu-icon">📦</span> Products
+            </a>
+            <a href="product-upload.html" class="admin-menu-item" data-page="product-upload">
+                <span class="menu-icon">➕</span> Add Product
+            </a>
+            <a href="orders.html" class="admin-menu-item" data-page="orders">
+                <span class="menu-icon">🛒</span> Orders
+            </a>
+            <a href="customers.html" class="admin-menu-item active" data-page="customers">
+                <span class="menu-icon">👥</span> Customers
+            </a>
+            <a href="../index.html" class="admin-menu-item danger" id="logoutBtn">
+                <span class="menu-icon">🚪</span> Logout
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Admin Header -->
+    <div class="admin-header">
+        <div class="admin-title">
+            <h1>Customers Management</h1>
+        </div>
+    </div>
+
+    <!-- Admin Main Content -->
+    <main class="admin-main">
+        <div class="admin-container">
+            <section class="dashboard-section">
+                <div class="section-header">
+                    <h2>All Customers</h2>
+                </div>
+
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Orders</th>
+                            <th>Total Spent</th>
+                            <th>Joined Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="customersTableBody">
+                        <tr>
+                            <td colspan="7" class="empty-state">No customers yet</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Customer Statistics -->
+            <section class="dashboard-section">
+                <h2>Customer Statistics</h2>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon">👥</div>
+                        <div class="metric-content">
+                            <h3>Total Customers</h3>
+                            <p class="metric-value" id="totalCustomersMetric">0</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">🆕</div>
+                        <div class="metric-content">
+                            <h3>This Month</h3>
+                            <p class="metric-value" id="thisMonthCustomers">0</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">💰</div>
+                        <div class="metric-content">
+                            <h3>Avg. Order Value</h3>
+                            <p class="metric-value" id="avgOrderValue">₹0</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">🏆</div>
+                        <div class="metric-content">
+                            <h3>Top Spender</h3>
+                            <p class="metric-value" id="topSpender">-</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="../admin/admin.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCustomersTable();
+            loadCustomerStatistics();
+        });
+
+        function loadCustomersTable() {
+            const customers = JSON.parse(localStorage.getItem('customers')) || [];
+            const orders = JSON.parse(localStorage.getItem('orders')) || [];
+            const tbody = document.getElementById('customersTableBody');
+
+            if (customers.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" class="empty-state">No customers yet</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = customers.map(customer => {
+                const customerOrders = orders.filter(o => o.email === customer.email);
+                const totalSpent = customerOrders.reduce((sum, o) => sum + o.total, 0);
+                
+                return `
+                    <tr>
+                        <td><strong>${customer.name}</strong></td>
+                        <td>${customer.email}</td>
+                        <td>${customer.phone || 'N/A'}</td>
+                        <td>${customerOrders.length}</td>
+                        <td>₹${totalSpent.toLocaleString('en-IN')}</td>
+                        <td>${new Date(customer.createdAt).toLocaleDateString()}</td>
+                        <td>
+                            <button class="btn-view" onclick="viewCustomer('${customer.email}')">View</button>
+                            <button class="btn-contact" onclick="contactCustomer('${customer.email}')">Contact</button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function loadCustomerStatistics() {
+            const customers = JSON.parse(localStorage.getItem('customers')) || [];
+            const orders = JSON.parse(localStorage.getItem('orders')) || [];
+            
+            // Total customers
+            document.getElementById('totalCustomersMetric').textContent = customers.length;
+            
+            // This month
+            const thisMonth = customers.filter(c => {
+                const date = new Date(c.createdAt);
+                const now = new Date();
+                return date.getMonth() === now.getMonth() && date.getFullYear() === now.getFullYear();
+            }).length;
+            document.getElementById('thisMonthCustomers').textContent = thisMonth;
+            
+            // Average order value
+            if (orders.length > 0) {
+                const avgOrder = orders.reduce((sum, o) => sum + o.total, 0) / orders.length;
+                document.getElementById('avgOrderValue').textContent = '₹' + Math.round(avgOrder).toLocaleString('en-IN');
+            }
+            
+            // Top spender
+            if (orders.length > 0) {
+                const customerSpending = {};
+                orders.forEach(order => {
+                    if (!customerSpending[order.email]) {
+                        customerSpending[order.email] = 0;
+                    }
+                    customerSpending[order.email] += order.total;
+                });
+                
+                const topSpenderEmail = Object.keys(customerSpending).reduce((a, b) => 
+                    customerSpending[a] > customerSpending[b] ? a : b
+                );
+                
+                const topCustomer = customers.find(c => c.email === topSpenderEmail);
+                document.getElementById('topSpender').textContent = topCustomer ? topCustomer.name.split(' ')[0] : '-';
+            }
+        }
+
+        function viewCustomer(email) {
+            alert('View customer details - ' + email);
+        }
+
+        function contactCustomer(email) {
+            alert('Send email to - ' + email);
+        }
+    </script>
+</body>
+</html>

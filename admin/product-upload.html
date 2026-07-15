@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product - VelorabyMegha Admin</title>
+    <link rel="stylesheet" href="../admin/admin.css">
+</head>
+<body class="admin-dashboard">
+    <!-- Admin Sidebar -->
+    <aside class="admin-sidebar">
+        <div class="admin-branding">
+            <h2>🏛️ Admin Panel</h2>
+        </div>
+
+        <nav class="admin-menu">
+            <a href="dashboard.html" class="admin-menu-item" data-page="dashboard">
+                <span class="menu-icon">📊</span> Dashboard
+            </a>
+            <a href="products.html" class="admin-menu-item" data-page="products">
+                <span class="menu-icon">📦</span> Products
+            </a>
+            <a href="product-upload.html" class="admin-menu-item active" data-page="product-upload">
+                <span class="menu-icon">➕</span> Add Product
+            </a>
+            <a href="orders.html" class="admin-menu-item" data-page="orders">
+                <span class="menu-icon">🛒</span> Orders
+            </a>
+            <a href="customers.html" class="admin-menu-item" data-page="customers">
+                <span class="menu-icon">👥</span> Customers
+            </a>
+            <a href="../index.html" class="admin-menu-item danger" id="logoutBtn">
+                <span class="menu-icon">🚪</span> Logout
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Admin Header -->
+    <div class="admin-header">
+        <div class="admin-title">
+            <h1>Add New Product</h1>
+        </div>
+    </div>
+
+    <!-- Admin Main Content -->
+    <main class="admin-main">
+        <div class="admin-container">
+            <form id="productUploadForm" class="product-upload-form" enctype="multipart/form-data">
+                <div class="form-section">
+                    <h3>Basic Information</h3>
+                    <div class="form-group">
+                        <label>Product Name *</label>
+                        <input type="text" id="productName" name="productName" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Category *</label>
+                            <select id="category" name="category" required>
+                                <option value="">Select Category</option>
+                                <option value="royal">Royal Collection</option>
+                                <option value="premium">Premium Silk</option>
+                                <option value="festive">Festive</option>
+                                <option value="casual">Casual Wear</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Subcategory</label>
+                            <input type="text" id="subcategory" name="subcategory">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Product Description *</label>
+                        <textarea id="description" name="description" rows="6" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Product Images *</label>
+                        <div class="file-upload">
+                            <input type="file" id="productImages" name="productImages" multiple accept="image/*" required>
+                            <div class="file-upload-hint">
+                                <p>Drag and drop images here or click to select</p>
+                                <p>Supported formats: JPG, PNG (Max 5MB each)</p>
+                            </div>
+                        </div>
+                        <div id="imagePreview" class="image-preview"></div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Product Details</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Fabric *</label>
+                            <select id="fabric" name="fabric" required>
+                                <option value="">Select Fabric</option>
+                                <option value="silk">Pure Silk</option>
+                                <option value="cotton">Cotton</option>
+                                <option value="blend">Silk Blend</option>
+                                <option value="georgette">Georgette</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Color *</label>
+                            <select id="color" name="color" required>
+                                <option value="">Select Color</option>
+                                <option value="emerald">Emerald Green</option>
+                                <option value="maroon">Deep Maroon</option>
+                                <option value="champagne">Champagne Gold</option>
+                                <option value="ivory">Ivory</option>
+                                <option value="sapphire">Sapphire Blue</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Available Sizes *</label>
+                        <div class="size-selector">
+                            <label><input type="checkbox" name="sizes" value="xs"> XS</label>
+                            <label><input type="checkbox" name="sizes" value="s"> S</label>
+                            <label><input type="checkbox" name="sizes" value="m"> M</label>
+                            <label><input type="checkbox" name="sizes" value="l"> L</label>
+                            <label><input type="checkbox" name="sizes" value="xl"> XL</label>
+                            <label><input type="checkbox" name="sizes" value="xxl"> XXL</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tags (comma separated)</label>
+                        <input type="text" id="tags" name="tags" placeholder="e.g., embroidered, handcrafted, luxury">
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Pricing & Inventory</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Regular Price (₹) *</label>
+                            <input type="number" id="price" name="price" min="0" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Discount Price (₹)</label>
+                            <input type="number" id="discountPrice" name="discountPrice" min="0" step="0.01">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Stock Quantity *</label>
+                            <input type="number" id="stock" name="stock" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label>SKU *</label>
+                            <input type="text" id="sku" name="sku" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Product Status</h3>
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="checkbox" id="isFeatured" name="isFeatured">
+                            Featured Product
+                        </label>
+                        <label>
+                            <input type="checkbox" id="isBestseller" name="isBestseller">
+                            Best Seller
+                        </label>
+                        <label>
+                            <input type="checkbox" id="isNewArrival" name="isNewArrival">
+                            New Arrival
+                        </label>
+                        <label>
+                            <input type="checkbox" id="isPublished" name="isPublished" checked>
+                            Published
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-outline" id="previewBtn">Preview</button>
+                    <button type="submit" class="btn btn-primary">Publish Product</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Preview Modal -->
+    <div id="previewModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Product Preview</h2>
+            <div id="previewContent" class="preview-content"></div>
+        </div>
+    </div>
+
+    <script src="../admin/admin.js"></script>
+</body>
+</html>
